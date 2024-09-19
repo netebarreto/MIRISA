@@ -14,12 +14,13 @@
  V-wind = https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis/Dailies/pressure/ 
  
  Rain CPC = https://psl.noaa.gov/data/gridded/data.cpc.globalprecip.html  [Option 1] 
+ 
             ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_GLB/RT/ [Option 2]
  
  OLR = https://www.ncei.noaa.gov/data/outgoing-longwave-radiation-daily/access/
 
 ###### Teste de Avaliacao de 2023
- - VERIFICAR SE O FILTRO DO R É EQUIVALENTE AO FILTRO DO NCL
+####### - VERIFICAR SE O FILTRO DO R É EQUIVALENTE AO FILTRO DO NCL
  - PACOTE DO R (signal)
  - PACOTE DO R library(seewave) *- ATUALIZADO: 26-02-2023* 
 
