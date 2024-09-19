@@ -13,8 +13,8 @@
  
  V-wind = https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis/Dailies/pressure/ 
  
- Rain CPC = https://psl.noaa.gov/data/gridded/data.cpc.globalprecip.html  [Option 1]
- 			ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_GLB/RT/ [Option 2]
+ Rain CPC = https://psl.noaa.gov/data/gridded/data.cpc.globalprecip.html  [Option 1] 
+            ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_GLB/RT/ [Option 2]
  
  OLR = https://www.ncei.noaa.gov/data/outgoing-longwave-radiation-daily/access/
 
