@@ -1,9 +1,9 @@
-# # Assimilação dos dados do MIRI.SA
+## Assimilação dos dados do MIRI.SA
 
-# AA00-NC-BRUTOS : ['Base de Dados brutas em NC4 NC_classic ']
-# AA02-ANOM      : ['Anomalias Brutas']
-# AA03-APAD      : ['Anomalias padronizadas']
-# AA04-COEF_EXP  : ['Coeficiente de expansão']
+### AA00-NC-BRUTOS : ['Base de Dados brutas em NC4 NC_classic ']
+### AA02-ANOM      : ['Anomalias Brutas']
+### AA03-APAD      : ['Anomalias padronizadas']
+### AA04-COEF_EXP  : ['Coeficiente de expansão']
 
 Site para download das variaveis:
 
