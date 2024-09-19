@@ -19,10 +19,10 @@
  
  OLR = https://www.ncei.noaa.gov/data/outgoing-longwave-radiation-daily/access/
 
-###### Teste de Avaliacao de 2023
-####### - VERIFICAR SE O FILTRO DO R É EQUIVALENTE AO FILTRO DO NCL
- - PACOTE DO R (signal)
- - PACOTE DO R library(seewave) *- ATUALIZADO: 26-02-2023* 
+##### TESTE DE AVLIAÇÃO (2023)
+###### - VERIFICAR SE O FILTRO DO R É EQUIVALENTE AO FILTRO DO NCL
+###### - PACOTE DO R (signal)
+###### - PACOTE DO R library(seewave) *- ATUALIZADO: 26-02-2023* 
 
 
 #### FAZER O TESTE DA MCA COM DIFERENTES FILTRAGENS
