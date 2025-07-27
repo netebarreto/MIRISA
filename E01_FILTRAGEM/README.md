@@ -10,7 +10,8 @@ Este documento descreve, em termos técnicos e aplicados, os principais filtros 
 
 ---
 
-### 🔹 Filtro de Lanczos
+### 🔹 [Filtro de Lanczos](FLanczos/Filtro_lanczos.md)
+
 
 **Tipo:** FIR (Resposta finita ao impulso)  
 **Características:**
@@ -28,7 +29,7 @@ Este documento descreve, em termos técnicos e aplicados, os principais filtros 
 
 ---
 
-### 🔹 Filtro de Butterworth
+### 🔹 [Filtro de Butterworth](Butterworth/Filtro_BTW.md)
 
 **Tipo:** IIR (Resposta infinita ao impulso)  
 **Características:**
