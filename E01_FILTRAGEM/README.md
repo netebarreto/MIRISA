@@ -115,7 +115,7 @@ Este documento descreve, em termos técnicos e aplicados, os principais filtros 
 ---
 
 ### Referências
-
+- Duchon, C. E. (1979). Lanczos filtering in one and two dimensions. Journal of Applied Meteorology (1962-1982), 1016-1022.
 - Oppenheim, A. V., & Schafer, R. W. (2010). *Discrete-Time Signal Processing*. Pearson.
 - Smith, S. W. (1997). *The Scientist and Engineer’s Guide to Digital Signal Processing*. California Technical Pub.
 - von Storch, H., & Zwiers, F. W. (1999). *Statistical Analysis in Climate Research*. Cambridge University Press.
