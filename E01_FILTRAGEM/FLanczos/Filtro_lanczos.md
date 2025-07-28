@@ -89,7 +89,8 @@ O gráfico mostra os espectros do sinal original e do filtrado por Lanczos. Obse
 
 ![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/FLanczos/Espectros_FLanczos.png)
 
-Referência 
+
+### Referências
 
 - Duchon, C. E. (1979). Lanczos filtering in one and two dimensions. Journal of Applied Meteorology (1962-1982), 1016-1022.
 
