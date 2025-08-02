@@ -30,3 +30,8 @@ Comparação entre o sinal original, o sinal ideal (componente simulada de 30–
 
 ![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/Butterworth/Filtro_BTW.png)
 
+
+### Referências
+- Selesnick, I. W., & Burrus, C. S. (2002). Generalized digital Butterworth filter design. IEEE Transactions on signal processing, 46(6), 1688-1694.
+- Shouran, M., & Elgamli, E. (2020). Design and implementation of Butterworth filter. Int. J. Innov. Res. Sci. Eng. Technol, 9(9), 7975-7983
+
