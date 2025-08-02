@@ -26,7 +26,7 @@ bf       <- butter(5, wn, type = "pass")
 x_butter <- filtfilt(bf, x)
 ```
 Figura 1 – Séries Temporais:
-Comparação entre o sinal original, o sinal ideal (componente simulada de 30–90 dias) e a série filtrada por Lanczos. A figura destaca a capacidade do filtro em recuperar a componente intrassazonal com fidelidade, mantendo a fase e reduzindo o ruído de alta frequência.
+Comparação entre o sinal original, o sinal ideal (componente simulada de 30–90 dias) e a série filtrada por Butterworth. A figura destaca a capacidade do filtro em recuperar a componente intrassazonal com fidelidade, mantendo a fase e reduzindo o ruído de alta frequência.
 
-![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/FLanczos/Filtro_LCZ.png)
+![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/Butterworth/Filtro_BTW.png)
 
