@@ -46,7 +46,7 @@ Este documento descreve, em termos técnicos e aplicados, os principais filtros 
 
 ---
 
-### 🔹 Filtro de Chebyshev Tipo I
+### 🔹 [Filtro de Chebyshev Tipo I](ChebyshevI/ChebyshevI.md)
 
 **Tipo:** IIR  
 **Características:**
@@ -118,7 +118,6 @@ Este documento descreve, em termos técnicos e aplicados, os principais filtros 
 - Duchon, C. E. (1979). Lanczos filtering in one and two dimensions. Journal of Applied Meteorology (1962-1982), 1016-1022.
 - Selesnick, I. W., & Burrus, C. S. (2002). Generalized digital Butterworth filter design. IEEE Transactions on signal processing, 46(6), 1688-1694.
 - Shouran, M., & Elgamli, E. (2020). Design and implementation of Butterworth filter. Int. J. Innov. Res. Sci. Eng. Technol, 9(9), 7975-7983.
--     ********
 - Oppenheim, A. V., & Schafer, R. W. (2010). *Discrete-Time Signal Processing*. Pearson.
 - Smith, S. W. (1997). *The Scientist and Engineer’s Guide to Digital Signal Processing*. California Technical Pub.
 - von Storch, H., & Zwiers, F. W. (1999). *Statistical Analysis in Climate Research*. Cambridge University Press.
