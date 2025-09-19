@@ -1,9 +1,19 @@
-
 # Filtro Chebyshev Tipo I
 
-A. Série sintética: mesma definição.  
+A. Série sintética: sinal 60 dias + ruído 
 
-2. Filtro Chebyshev Tipo I (ordem 5, ripple = 1 dB)  
+```R
+library(signal)
+set.seed(42)
+n <- 3650
+t <- 1:n
+dt <- 1  # passo diário
+signal_intra <- sin(2 * pi * t / 60) + 0.5 * sin(2 * pi * t / 45)
+noise <- rnorm(n, sd = 0.5)
+x <- signal_intra + noise
+```
+
+B. Filtro Chebyshev Tipo I (ordem 5, ripple = 1 dB)  
 
 ```R
 cf1      <- cheby1(5, Rp = 1, wn, type = "pass")
