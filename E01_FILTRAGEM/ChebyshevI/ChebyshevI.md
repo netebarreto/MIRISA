@@ -23,7 +23,7 @@ x_cheby1 <- filtfilt(cf1, x)
 Figura 3 – Séries Temporais:  
 O Chebyshev Tipo I apresenta bordas mais acentuadas em comparação ao Butterworth, permitindo maior seletividade, mas introduz pequenas ondulações (ripple) na banda de passagem.  
 
-![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/ChebyshevI/Filtro_CHEBY1.png)
+![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/ChebyshevI/Filtro_ChebyshevI.png)
 
 ### Referências
 
