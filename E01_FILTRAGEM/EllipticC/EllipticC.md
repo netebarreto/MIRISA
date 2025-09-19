@@ -34,7 +34,7 @@ x_elliptic <- filtfilt(ef, x)
 Figura 5 – Séries Temporais:  
 O Elliptic combina alta eficiência na rejeição de frequências e bordas muito acentuadas, mas introduz ondulações tanto na banda de passagem quanto na de rejeição.  
 
-![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/Elliptic/Filtro_ELLP.png)
+![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/EllipticC/Filtro_ELLP.png)
 
 ---
 
