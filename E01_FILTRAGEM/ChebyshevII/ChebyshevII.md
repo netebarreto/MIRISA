@@ -33,6 +33,6 @@ x_cheby2 <- filtfilt(cf2, x)
 Figura 4 – Séries Temporais:  
 O Chebyshev II apresenta rejeição mais eficiente fora da banda de interesse, com bordas nítidas, mas pode introduzir ondulações na banda de rejeição.  
 
-![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/ChebyshevII/Filtro_CHEBY2.png)
+![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/ChebyshevII/Filtro_ChebyshevII.png)
 
 ---
