@@ -25,8 +25,8 @@ O Chebyshev Tipo I apresenta bordas mais acentuadas em comparação ao Butterwor
 
 ![](https://github.com/netebarreto/MIRISA/blob/main/E01_FILTRAGEM/ChebyshevI/Filtro_CHEBY1.png)
 
-Referências
+### Referências
 
-Antoniou, A. (2006). Digital Signal Processing: Signals, Systems, and Filters. McGraw-Hill.
+- Antoniou, A. (2006). Digital Signal Processing: Signals, Systems, and Filters. McGraw-Hill.
 
-Ifeachor, E. C., & Jervis, B. W. (2002). Digital Signal Processing: A Practical Approach. Pearson Education.
+- Ifeachor, E. C., & Jervis, B. W. (2002). Digital Signal Processing: A Practical Approach. Pearson Education.
