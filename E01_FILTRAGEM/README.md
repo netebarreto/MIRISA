@@ -2,7 +2,15 @@
 
 ## Resumo
 
-A variabilidade intrassazonal (VISA), associada a oscilações atmosféricas com períodos entre 30 e 90 dias, desempenha papel fundamental na modulação da convecção tropical e na ocorrência de eventos extremos em escala subestacional, como evidenciado pela Oscilação Madden–Julian (MJO). A adequada extração dessa faixa de variabilidade requer a aplicação criteriosa de filtros digitais, cuja escolha influencia a preservação do sinal, a resposta espectral e os efeitos de borda. Este estudo realiza uma avaliação comparativa entre diferentes filtros — Butterworth, Lanczos, Chebyshev Tipo I e II, Elliptic e FIR com janela de Blackman — aplicados a séries sintéticas, simulando condições climáticas realistas. A análise considera a preservação de fase, a energia na banda 30–90 dias e a fidelidade espectral. Os resultados destacam vantagens e limitações específicas de cada abordagem, oferecendo subsídios metodológicos para a escolha de filtros em estudos climatológicos e aplicações operacionais.
+A variabilidade intrassazonal (VISA), associada a oscilações atmosféricas com períodos entre 30 e 90 dias, desempenha papel fundamental na modulação da convecção tropical e na ocorrência de eventos extremos em escala subestacional, como evidenciado pela Oscilação Madden–Julian (MJO). A adequada extração dessa faixa de variabilidade requer a aplicação criteriosa de filtros digitais, cuja escolha influencia a preservação do sinal, a resposta espectral e os efeitos de borda. Este estudo realiza uma avaliação comparativa entre diferentes filtros:
+- Butterworth;
+-  Lanczos;
+-  Chebyshev Tipo I;
+-  Chebyshev Tipo II;
+-  Elliptic;
+-  FIR com janela de Blackman
+  
+Aplicados a séries sintéticas, simulando condições climáticas realistas. A análise considera a preservação de fase, a energia na banda 30–90 dias e a fidelidade espectral. Os resultados destacam vantagens e limitações específicas de cada abordagem, oferecendo subsídios metodológicos para a escolha de filtros em estudos climatológicos e aplicações operacionais.
 
 ## Documentação Teórico-Metodológica dos Filtros Digitais
 
@@ -63,7 +71,7 @@ Este documento descreve, em termos técnicos e aplicados, os principais filtros 
 
 ---
 
-### 🔹 Filtro de Chebyshev Tipo II
+### 🔹 [Filtro de Chebyshev Tipo II](ChebyshevII/ChebyshevII.md)
 
 **Tipo:** IIR  
 **Características:**
@@ -80,7 +88,7 @@ Este documento descreve, em termos técnicos e aplicados, os principais filtros 
 
 ---
 
-### 🔹 Filtro Elliptic (Cauer)
+### 🔹 [Filtro Elliptic (Cauer)](EllipticC/EllipticC.md)
 
 **Tipo:** IIR  
 **Características:**
@@ -97,7 +105,7 @@ Este documento descreve, em termos técnicos e aplicados, os principais filtros 
 
 ---
 
-### 🔹 Filtro FIR com janela de Blackman
+### 🔹 [Filtro FIR com janela de Blackman](FIR_Blackman/FIR_Blackman.md)
 
 **Tipo:** FIR  
 **Características:**
