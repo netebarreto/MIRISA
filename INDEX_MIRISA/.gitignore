@@ -1,0 +1,16 @@
+# Dados locais e resultados; manter documentação e exemplos existentes.
+data/**
+!data/**/
+!data/**/.gitkeep
+!data/**/README.md
+outputs/**
+!outputs/**/
+!outputs/**/.gitkeep
+!outputs/**/README.md
+!outputs/examples/**
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.Rhistory
+.RData
+config/*.local.*

@@ -1,0 +1,12 @@
+# Contrato documental. Os scripts ainda não leem este YAML.
+project_root: INDEX_MIRISA
+data:
+  raw: data/raw
+  reference: data/reference
+  intermediate: data/intermediate
+  shapes: data/shapes
+outputs:
+  models: outputs/models
+  tables: outputs/tables
+  netcdf: outputs/netcdf
+  figures: outputs/figures
