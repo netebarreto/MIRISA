@@ -1,0 +1,3 @@
+
+
+write.table(MIRI.SA,file=paste0("AA03-RData_TxT/MIRISA_REALT_20180101_20230422_CREATE_",data1,".txt"),sep=";",dec=".",col.names=T,row.names=FALSE)
