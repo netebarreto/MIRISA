@@ -1,10 +1,11 @@
 # Dados locais e resultados; manter documentação e exemplos existentes.
-data/**
+data/**/*.nc
 !data/**/
 !data/**/.gitkeep
 !data/**/README.md
 outputs/**
-!outputs/**/
+!outputs/tables/**
+!outputs/figures/**
 !outputs/**/.gitkeep
 !outputs/**/README.md
 !outputs/examples/**
