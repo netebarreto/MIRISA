@@ -1,0 +1,14 @@
+# Contrato documental; YAML não é carregado automaticamente.
+project_root: INDEX_MIRISA
+climatology_config: config/climatology_periods.json
+climatology_periods: [1981_2010, 1991_2020, 1981_2020]
+data:
+  template: data/<variavel>/<tratamento>/<fonte>/<versao>/<nivel>/<periodo>/<metodo>
+  variables: [prec, uwnd, vwnd, olr]
+  treatments: [brutos, recortados, climatologia, anomalias, filtrados, desvio_padrao, padronizados]
+  static: data/static
+outputs:
+  models: outputs/models
+  tables: outputs/tables
+  netcdf: outputs/netcdf
+  figures: outputs/figures

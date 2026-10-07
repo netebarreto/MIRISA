@@ -1,5 +1,7 @@
 # Avaliação técnica — INDEX_MIRISA
 
+> Nota da reorganização: a avaliação abaixo se refere aos nomes e linhas da árvore original. Consulta [MIGRACAO.md](MIGRACAO.md) para localizar os arquivos atuais. Nesta branch foram ajustados caminhos e documentação; os achados científicos e erros de execução restantes não foram considerados resolvidos. A estrutura atual coloca functions dentro de scripts.
+
 Revisão em 06/10/2026 da árvore em `794f82559f982efe9b14babd0c8069c6a144747e`. Escopo principal: INDEX_MIRISA; inspeção da árvore e README da raiz para contexto.
 
 ## Parecer
