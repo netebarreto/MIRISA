@@ -145,10 +145,10 @@ Os caminhos abaixo substituem os caminhos da organização anterior. Os arquivos
 | `data/reference/CLIM/olr.dayclim.v01r02.19810101.20101231.nc` | `data/olr/climatologia/v01r02/1981_2010/olr.dayclim.v01r02.19810101.20101231.nc` |
 | `data/reference/CLIM/u20.dayclim.19810101.20101231.nc` | `data/uwnd/climatologia/ncep/200hpa/1981_2010/u20.dayclim.19810101.20101231.nc` |
 | `data/reference/CLIM/u85.dayclim.19810101.20101231.nc` | `data/uwnd/climatologia/ncep/850hpa/1981_2010/u85.dayclim.19810101.20101231.nc` |
-| `data/reference/STD_R/olr.std.daily.v01r02.cpc.1991.2020.nc` | `data/olr/desvio_padrao/v01r02/historico/butterworth_seewave/olr.std.daily.v01r02.cpc.1991.2020.nc` |
-| `data/reference/STD_R/prec.AMS.std.abtw.daily.cpc.1991.2020.nc` | `data/prec/desvio_padrao/cpc/historico/butterworth_seewave/prec.AMS.std.abtw.daily.cpc.1991.2020.nc` |
-| `data/reference/STD_R/u20.std.abtw.daily.ncep.1991.2020.nc` | `data/uwnd/desvio_padrao/ncep/200hpa/historico/butterworth_seewave/u20.std.abtw.daily.ncep.1991.2020.nc` |
-| `data/reference/STD_R/u85.std.abtw.daily.ncep.1991.2020.nc` | `data/uwnd/desvio_padrao/ncep/850hpa/historico/butterworth_seewave/u85.std.abtw.daily.ncep.1991.2020.nc` |
+| `data/reference/STD_R/olr.std.daily.v01r02.cpc.1991.2020.nc` | `data/olr/desvio_padrao/v01r02/historico/referencia_legada/olr.std.daily.v01r02.cpc.1991.2020.nc` |
+| `data/reference/STD_R/prec.AMS.std.abtw.daily.cpc.1991.2020.nc` | `data/prec/desvio_padrao/cpc/historico/referencia_legada/prec.AMS.std.abtw.daily.cpc.1991.2020.nc` |
+| `data/reference/STD_R/u20.std.abtw.daily.ncep.1991.2020.nc` | `data/uwnd/desvio_padrao/ncep/200hpa/historico/referencia_legada/u20.std.abtw.daily.ncep.1991.2020.nc` |
+| `data/reference/STD_R/u85.std.abtw.daily.ncep.1991.2020.nc` | `data/uwnd/desvio_padrao/ncep/850hpa/historico/referencia_legada/u85.std.abtw.daily.ncep.1991.2020.nc` |
 | `data/shapes/gadm36_BRA_1.shp` | `data/static/shapes/gadm36_BRA_1.shp` |
 | `data/u20.anom.daily.ncep.19910301.20210228.nc` | `data/uwnd/anomalias/ncep/200hpa/historico/u20.anom.daily.ncep.19910301.20210228.nc` |
 | `data/u85.anom.daily.ncep.19910301.20210228.nc` | `data/uwnd/anomalias/ncep/850hpa/historico/u85.anom.daily.ncep.19910301.20210228.nc` |
