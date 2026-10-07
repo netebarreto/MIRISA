@@ -29,7 +29,7 @@ print(frac_explicada[1:5]*100)
 
 ##########################
 
-nc <- nc_open("data/intermediate/AC02-BTW_APAD_R/olr.apad.mca.daily.v01r02.20180101.20260307.nc")
+nc <- nc_open("data/olr/padronizados/v01r02/historico/olr.apad.mca.daily.v01r02.20180101.20260307.nc")
 varname = 'olr'
 varsize = nc$var[[varname]]$size
 
@@ -49,7 +49,7 @@ OLR<-matrix(input.o,nrow=nt.olr,byrow=T) # transforma o array em ts
 
 ##########################
 
-nc <- nc_open("data/intermediate/AC02-BTW_APAD_R/u20.apad.mca.daily.ncep.20180101.20260307.nc")
+nc <- nc_open("data/uwnd/padronizados/ncep/200hpa/historico/u20.apad.mca.daily.ncep.20180101.20260307.nc")
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
 
@@ -68,7 +68,7 @@ U20<-matrix(input.u20,nrow=nt.u20,byrow=T) # transforma o array em ts
 
 ##########################
 
-nc <- nc_open("data/intermediate/AC02-BTW_APAD_R/u85.apad.mca.daily.ncep.20180101.20260307.nc")
+nc <- nc_open("data/uwnd/padronizados/ncep/850hpa/historico/u85.apad.mca.daily.ncep.20180101.20260307.nc")
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
 

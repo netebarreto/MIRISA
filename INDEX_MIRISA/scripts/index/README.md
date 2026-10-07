@@ -7,7 +7,7 @@
 
 A versão MCA 20230220 está preservada em experiments/legacy/R. A escolha da versão 20230225 como candidata organizacional não resolve a convenção de sinais ou a definição do índice.
 
-Entradas: campos padronizados em data/intermediate/AC02-BTW_APAD_R, máscara em data/reference e modelo em outputs/models. Saídas: outputs/models, outputs/tables e outputs/netcdf. Dependências: ncdf4, fields, beepr e funções de scripts/functions/R.
+Entradas: campos padronizados em data/<variavel>/<tratamento>/AC02-BTW_APAD_R, máscara em data/<variavel>/climatologia ou data/static e modelo em outputs/models. Saídas: outputs/models, outputs/tables e outputs/netcdf. Dependências: ncdf4, fields, beepr e funções de scripts/functions/R.
 
 Cinco auxiliares chamados por source continuam ausentes. O caminho de cov4gappy foi corrigido para a implementação existente. A projeção ainda procura o modelo de data 20230226, enquanto a MCA disponível salva 20230225; a reorganização não escolhe um modelo diferente silenciosamente.
 

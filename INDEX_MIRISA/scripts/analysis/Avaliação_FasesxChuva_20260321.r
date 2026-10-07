@@ -74,13 +74,13 @@ miri4 = subset(dados,dados$seas == "SON")
 
 
 library("ncdf4")
-nc <- nc_open("data/intermediate/AC01-BTW_ANOM/prec/apreci.AMS.day.btw.19820101.20161231.nc")
+nc <- nc_open("data/prec/filtrados/cpc/historico/butterworth_signal/apreci.AMS.day.btw.19820101.20161231.nc")
 varname = 'precip'
 varsize = nc$var[[varname]]$size
 
 
 ##########################
-nc1 <- nc_open("data/reference/AS.mask.20161231.nc")
+nc1 <- nc_open("data/static/masks/AS.mask.20161231.nc")
 
 mask = ncvar_get(nc1,"rain", start=c(1,1,1),count=c(-1,-1,1))
 

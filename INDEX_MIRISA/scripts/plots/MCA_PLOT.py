@@ -42,7 +42,7 @@ lat_1 = lats1.mean()
 
 lon1, lat1 = np.meshgrid(lons1, lats1)
 
-df = gpd.read_file("data/shapes/gadm36_BRA_1.shp")
+df = gpd.read_file("data/static/shapes/gadm36_BRA_1.shp")
 
 
 gs0 = gridspec.GridSpec(2, 2,wspace=0.2)

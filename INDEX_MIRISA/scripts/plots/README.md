@@ -6,7 +6,7 @@
 | MCA_PLOT.py | Mapas de padrões de precipitação MCA |
 | mapas_comp.gs | Oito fases de composições OLR/chuva |
 
-Python lê outputs/tables ou outputs/netcdf; mapas também usam data/shapes. Escreve outputs/figures. A configuração Python detecta a raiz pela localização do script ou MIRISA_ROOT. Dependências: NumPy, pandas, Matplotlib; mapas também netCDF4/Basemap/GeoPandas/contextily.
+Python lê outputs/tables ou outputs/netcdf; mapas também usam data/static/shapes. Escreve outputs/figures. A configuração Python detecta a raiz pela localização do script ou MIRISA_ROOT. Dependências: NumPy, pandas, Matplotlib; mapas também netCDF4/Basemap/GeoPandas/contextily.
 
 Os diagramas antigos/teste_DP estão em experiments/legacy/PYTHON. Consolidar somente após validar fases, limites de cores e janelas curtas. Títulos RR1/SDII do mapa MCA e o nome da figura continuam pendentes; esta reorganização não muda a interpretação científica.
 

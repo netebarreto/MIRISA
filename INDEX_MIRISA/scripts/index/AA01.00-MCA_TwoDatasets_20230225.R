@@ -26,7 +26,7 @@ data1 = 20230222#shell("date +%Y%m%d",intern=T)
 
 print(" Iniciando Etapa 0")
 
-nc <- nc_open("data/intermediate/AC02-BTW_APAD_R/prec.AMS.apad.mca.daily.cpc.19910301.20200228.nc")
+nc <- nc_open("data/prec/padronizados/cpc/historico/prec.AMS.apad.mca.daily.cpc.19910301.20200228.nc")
 
 varname = 'precip'
 varsize = nc$var[[varname]]$size
@@ -42,7 +42,7 @@ for( i in 1:nt.prp) {
                  }
 
 ##########################
-nc1 <- nc_open("data/reference/AS.mask.20161231.nc")
+nc1 <- nc_open("data/static/masks/AS.mask.20161231.nc")
 
 temp1 = ncvar_get(nc1,"rain", start=c(1,1,1),count=c(-1,-1,1))
 
@@ -54,7 +54,7 @@ PRP.dataset<-tmp1[,-n.undef]
 
 ##########################
 
-nc <- nc_open("data/intermediate/AC02-BTW_APAD_R/olr.apad.mca.daily.v01r02.19910301.20200228.nc")
+nc <- nc_open("data/olr/padronizados/v01r02/historico/olr.apad.mca.daily.v01r02.19910301.20200228.nc")
 varname = 'olr'
 varsize = nc$var[[varname]]$size
 
@@ -74,7 +74,7 @@ OLR<-matrix(input.o,nrow=nt.olr,byrow=T) # transforma o array em ts
 
 ##########################
 
-nc <- nc_open("data/intermediate/AC02-BTW_APAD_R/u20.apad.mca.daily.ncep.19910301.20200228.nc")
+nc <- nc_open("data/uwnd/padronizados/ncep/200hpa/historico/u20.apad.mca.daily.ncep.19910301.20200228.nc")
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
 
@@ -93,7 +93,7 @@ U20<-matrix(input.u20,nrow=nt.u20,byrow=T) # transforma o array em ts
 
 ##########################
 
-nc <- nc_open("data/intermediate/AC02-BTW_APAD_R/u85.apad.mca.daily.ncep.19910301.20200228.nc")
+nc <- nc_open("data/uwnd/padronizados/ncep/850hpa/historico/u85.apad.mca.daily.ncep.19910301.20200228.nc")
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
 

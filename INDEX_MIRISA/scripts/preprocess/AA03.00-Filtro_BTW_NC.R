@@ -21,7 +21,7 @@ bf       <- butter(3, wn, type = "pass")
 
 # * - * - *- -* -* -*- -* -* -* *-* -** --* -** 
 
-nc <- nc_open("data/intermediate/AB01-NOF_ANOM/u20.anom.daily.ncep.20180101.20260307.nc")
+nc <- nc_open("data/uwnd/anomalias/ncep/200hpa/historico/u20.anom.daily.ncep.20180101.20260307.nc")
 
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
@@ -56,14 +56,14 @@ for (i in 1:nx.u20)
 
 
 U20<- ncvar_def("uwnd","[m/s]",  list(x.u20,y.u20,t.u20),-999999,prec="float" )
-ncnew <- nc_create  (paste0("data/intermediate/AC01-BTW_ANOM/u20.abtw.daily.ncep.20180101.20260307.nc"), list(U20))
+ncnew <- nc_create  (paste0("data/uwnd/filtrados/ncep/200hpa/historico/butterworth_signal/u20.abtw.daily.ncep.20180101.20260307.nc"), list(U20))
 ncvar_put( ncnew,U20,c(input_btw))
 nc_close(ncnew)
 
 
 # * - * - *- -* -* -*- -* -* -* *-* -** --* -** 
 
-nc <- nc_open("data/intermediate/AB01-NOF_ANOM/u85.anom.daily.ncep.20180101.20260307.nc")
+nc <- nc_open("data/uwnd/anomalias/ncep/850hpa/historico/u85.anom.daily.ncep.20180101.20260307.nc")
 
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
@@ -96,7 +96,7 @@ for (i in 1:nx.u85)
 
 
 U85<- ncvar_def("uwnd","[m/s]",  list(x.u85,y.u85,t.u85),-999999,prec="float" )
-ncnew <- nc_create  (paste0("data/intermediate/AC01-BTW_ANOM/u85.abtw.daily.ncep.20180101.20260307.nc"), list(U85))
+ncnew <- nc_create  (paste0("data/uwnd/filtrados/ncep/850hpa/historico/butterworth_signal/u85.abtw.daily.ncep.20180101.20260307.nc"), list(U85))
 ncvar_put( ncnew,U85,c(input_btw))
 nc_close(ncnew)
 
@@ -104,7 +104,7 @@ nc_close(ncnew)
 
 # * - * - *- -* -* -*- -* -* -* *-* -** --* -** 
 
-nc <- nc_open("data/intermediate/AB01-NOF_ANOM/olr.anom.daily.v01r02.20180101.20260307.nc")
+nc <- nc_open("data/olr/anomalias/v01r02/historico/olr.anom.daily.v01r02.20180101.20260307.nc")
 
 varname = 'olr'
 varsize = nc$var[[varname]]$size
@@ -141,7 +141,7 @@ for (i in 1:nx.olr)
 rm(input)
 
 OLR<- ncvar_def("olr","[m/s]",  list(x.olr,y.olr,t.olr),-999999,prec="float" )
-ncnew <- nc_create(paste0("data/intermediate/AC01-BTW_ANOM/olr.abtw.daily.v01r02.20180101.20260307.nc"), list(OLR))
+ncnew <- nc_create(paste0("data/olr/filtrados/v01r02/historico/butterworth_signal/olr.abtw.daily.v01r02.20180101.20260307.nc"), list(OLR))
 ncvar_put( ncnew,OLR,c(input_btw))
 nc_close(ncnew)
 

@@ -15,7 +15,7 @@ Rotinas de cálculo, projeção e análise do índice multivariado intrassazonal
 | [scripts/plots](scripts/plots/README.md) | Diagramas e mapas Python/GrADS |
 | [scripts/functions](scripts/functions/README.md) | Auxiliares R, Python e GrADS |
 | [experiments](experiments/README.md) | Versões históricas e protótipos preservados |
-| [data](data/README.md) | Dados brutos, referências, intermediários e shapefiles locais |
+| [data](data/README.md) | Variáveis, tratamentos, referências climatológicas e dados estáticos locais |
 | [outputs](outputs/README.md) | Modelos, tabelas, NetCDF, figuras e exemplos |
 
 Funções ficam dentro de scripts, separadas por linguagem. Nomes datados das rotinas foram preservados para rastreabilidade. Consulta o [mapa completo de migração](MIGRACAO.md).
@@ -65,3 +65,7 @@ A reorganização foi verificada quanto a cobertura dos arquivos, preservação 
 - Sapucci et al. (2025), estudos sobre oscilação intrassazonal, EOF/redes neurais e previsão.
 
 As referências não validam automaticamente cada versão de código. A licença de redistribuição ainda precisa ser definida.
+
+## Referências climatológicas alternativas
+
+Dados agora são organizados por variável (`prec`, `uwnd`, `vwnd`, `olr`) e tratamento. Consulte [data/README.md](data/README.md). A nova rotina [gerar_climatologias](scripts/preprocess/README.md#preparar-as-três-referências) prepara 1981–2010, 1991–2020 e 1981–2020, com anos civis completos. Produtos antigos estão separados em `historico`; a preparação das referências não implica que os três modelos MCA já tenham sido reestimados.

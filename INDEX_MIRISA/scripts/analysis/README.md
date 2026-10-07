@@ -8,7 +8,7 @@
 | Avaliação_FasesxChuva_20260321.r | Diagnósticos amplitude/MPI e mapas; nomes de variável/imports precisam de revisão |
 | AA03-Aspectos_Climatologicos_MIRISA.ipynb | Distribuição de amplitude, classes e sazonalidade |
 
-Entradas: tabelas em outputs/tables, MPI em outputs/netcdf e campos em data/intermediate. Modelos/figuras de análises R permanecem em memória se não houver exportação explícita. O notebook grava figuras em outputs/figures; suas saídas antigas foram limpas para evitar apresentar gráficos sem nova execução.
+Entradas: tabelas em outputs/tables, MPI em outputs/netcdf e campos em data/<variavel>/<tratamento>. Modelos/figuras de análises R permanecem em memória se não houver exportação explícita. O notebook grava figuras em outputs/figures; suas saídas antigas foram limpas para evitar apresentar gráficos sem nova execução.
 
 O notebook detecta a raiz a partir do diretório atual ou MIRISA_ROOT. Os scripts R exigem execução a partir de INDEX_MIRISA, ou MIRISA_ROOT com caminho absoluto. Funções source foram atualizadas para scripts/functions/R.
 

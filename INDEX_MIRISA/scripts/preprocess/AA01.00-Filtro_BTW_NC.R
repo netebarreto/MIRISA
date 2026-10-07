@@ -8,7 +8,7 @@ library(seewave)
 library(ncdf4)
 
 
-nc <- nc_open("data/prec.AMS.anom.daily.cpc.199110301.20210628.nc")
+nc <- nc_open("data/prec/anomalias/cpc/historico/prec.AMS.anom.daily.cpc.199110301.20210628.nc")
 
 varname = 'precip'
 varsize = nc$var[[varname]]$size
@@ -42,14 +42,14 @@ for (i in 1:nx.prp)
 
 
 PRP<- ncvar_def("precip","[mm/dia]",  list(x.prp,y.prp,t.prp),-999999,prec="float" )
-ncnew <- nc_create  (paste0("data/intermediate/AC01-BTW_ANOM_R/prec.AMS.abtw.daily.cpc.19910301.20210628.nc"), list(PRP))
+ncnew <- nc_create  (paste0("data/prec/filtrados/cpc/historico/butterworth_seewave/prec.AMS.abtw.daily.cpc.19910301.20210628.nc"), list(PRP))
 ncvar_put( ncnew,PRP,c(input_btw))
 nc_close(ncnew)
 
 
 # * - * - *- -* -* -*- -* -* -* *-* -** --* -** 
 
-nc <- nc_open("data/u20.anom.daily.ncep.19910301.20210228.nc")
+nc <- nc_open("data/uwnd/anomalias/ncep/200hpa/historico/u20.anom.daily.ncep.19910301.20210228.nc")
 
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
@@ -80,14 +80,14 @@ for (i in 1:nx.u20)
 
 
 U20<- ncvar_def("uwnd","[m/s]",  list(x.u20,y.u20,t.u20),-999999,prec="float" )
-ncnew <- nc_create  (paste0("data/intermediate/AC01-BTW_ANOM_R/u20.abtw.daily.ncep.19910301.20210628.nc"), list(U20))
+ncnew <- nc_create  (paste0("data/uwnd/filtrados/ncep/200hpa/historico/butterworth_seewave/u20.abtw.daily.ncep.19910301.20210628.nc"), list(U20))
 ncvar_put( ncnew,U20,c(input_btw))
 nc_close(ncnew)
 
 
 # * - * - *- -* -* -*- -* -* -* *-* -** --* -** 
 
-nc <- nc_open("data/u85.anom.daily.ncep.19910301.20210228.nc")
+nc <- nc_open("data/uwnd/anomalias/ncep/850hpa/historico/u85.anom.daily.ncep.19910301.20210228.nc")
 
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
@@ -118,7 +118,7 @@ for (i in 1:nx.u85)
 
 
 U85<- ncvar_def("uwnd","[m/s]",  list(x.u85,y.u85,t.u85),-999999,prec="float" )
-ncnew <- nc_create  (paste0("data/intermediate/AC01-BTW_ANOM_R/u85.abtw.daily.ncep.19910301.20210628.nc"), list(U85))
+ncnew <- nc_create  (paste0("data/uwnd/filtrados/ncep/850hpa/historico/butterworth_seewave/u85.abtw.daily.ncep.19910301.20210628.nc"), list(U85))
 ncvar_put( ncnew,U85,c(input_btw))
 nc_close(ncnew)
 
@@ -126,7 +126,7 @@ nc_close(ncnew)
 
 # * - * - *- -* -* -*- -* -* -* *-* -** --* -** 
 
-nc <- nc_open("data/olr.anom.daily.v01r02.19910301.20211231.nc")
+nc <- nc_open("data/olr/anomalias/v01r02/historico/olr.anom.daily.v01r02.19910301.20211231.nc")
 
 varname = 'olr'
 varsize = nc$var[[varname]]$size
@@ -158,7 +158,7 @@ for (i in 1:nx.olr)
 rm(input)
 
 OLR<- ncvar_def("olr","[m/s]",  list(x.olr,y.olr,t.olr),-999999,prec="float" )
-ncnew <- nc_create  (paste0("data/intermediate/AC01-BTW_ANOM_R/olr.abtw.daily.v01r02.19910301.20201231.nc"), list(OLR))
+ncnew <- nc_create  (paste0("data/olr/filtrados/v01r02/historico/butterworth_seewave/olr.abtw.daily.v01r02.19910301.20201231.nc"), list(OLR))
 ncvar_put( ncnew,OLR,c(input_btw))
 nc_close(ncnew)
 
