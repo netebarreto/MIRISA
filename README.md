@@ -38,6 +38,20 @@ As rotinas devem ser executadas a partir de `INDEX_MIRISA`. Para indicar outra l
 
 Antes de executar, consulta o README da etapa, instala as dependências e fornece os arquivos de entrada. **O clone não inclui os NetCDF volumosos, os modelos ajustados nem as séries do índice disponíveis apenas na máquina local.** O [mapa de migração](INDEX_MIRISA/MIGRACAO.md) indica os destinos dos arquivos anteriores.
 
+## Download das variáveis
+
+Links de referência para localizar os dados usados nas rotinas:
+
+| Variável | Fonte | Endereço |
+| --- | --- | --- |
+| Vento zonal — U-wind (`uwnd`) | NCEP/NCAR Reanalysis — dados diários em níveis de pressão | [Diretório de download](https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis/Dailies/pressure/) |
+| Vento meridional — V-wind (`vwnd`) | NCEP/NCAR Reanalysis — dados diários em níveis de pressão | [Diretório de download](https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis/Dailies/pressure/) |
+| Precipitação — Rain CPC (`prec`), opção 1 | Página da base CPC Global Precipitation | [Descrição e acesso aos dados](https://psl.noaa.gov/data/gridded/data.cpc.globalprecip.html) |
+| Precipitação — Rain CPC (`prec`), opção 2 | Diretório FTP CPC — GAUGE_GLB/RT | [Diretório de download via FTP](ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_GLB/RT/) |
+| Radiação de onda longa emergente — OLR (`olr`) | NOAA/NCEI — dados diários | [Diretório de download](https://www.ncei.noaa.gov/data/outgoing-longwave-radiation-daily/access/) |
+
+Após o download, organiza os arquivos conforme [data/README.md](INDEX_MIRISA/data/README.md).
+
 ## Organização dos dados
 
 A hierarquia identifica variável, tratamento, fonte, versão/variante, nível, referência e método, quando aplicáveis:
