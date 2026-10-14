@@ -23,7 +23,7 @@ Funções ficam dentro de scripts, separadas por linguagem. Nomes datados das ro
 ## Obter esta organização
 
 ```bash
-git clone --branch MIRISA_organizado --single-branch https://github.com/netebarreto/MIRISA.git MIRISA_organizado
+git clone --branch main --single-branch https://github.com/netebarreto/MIRISA.git MIRISA_organizado
 cd MIRISA_organizado/INDEX_MIRISA
 ```
 
@@ -64,7 +64,7 @@ A reorganização foi verificada quanto a cobertura dos arquivos, preservação 
 - Grimm et al. (2021). Active and break phases of the South American summer monsoon: MJO influence and subseasonal prediction.
 - Sapucci et al. (2025), estudos sobre oscilação intrassazonal, EOF/redes neurais e previsão.
 
-As referências não validam automaticamente cada versão de código. A licença de redistribuição ainda precisa ser definida.
+As referências não validam automaticamente cada versão de código. O código original do projeto é disponibilizado sob a GNU GPLv3 (`GPL-3.0-only`); consulta [LICENSE](../LICENSE). Códigos de terceiros e bases de dados mantêm suas próprias licenças.
 
 ## Referências climatológicas alternativas
 
