@@ -333,6 +333,7 @@ nc_close(ncnew)
 beep(1)
 #===============================================================================
 
+load("outputs/models/MCA_SA_20261007.RData")
 
 # INDICE MIRISA - COMPONENTES, AMPLITUDE E FASE
 # Converte as duas componentes em angulo e amplitude; setores de 45 graus definem a fase.
@@ -354,8 +355,8 @@ coef.B2<-mca.dataset$B[,2]/sqrt(mca.dataset$Lambda[2])
 
 # Calcula as combinacoes definidas na rotina: index1 usa A1 e B1; index2 usa A2 e B2.
 # dessa forma o index maximiza as anomalias associadas a chuva.
-index1=round((coef.A1+coef.B1)/2,4)
-index2=round((coef.A2+coef.B2)/2,4)
+index1=round((coef.A1+coef.B1)*-1/2,4)
+index2=round((coef.A2+coef.B2)*-1/2,4)
 
 indexT= perfil1(index1,index2)
 
@@ -367,6 +368,9 @@ multiplicator<-switch(units, days = 60 * 60 * 24, hours = 60 * 60, minutes = 60,
 time.out <- origin + t.prp$vals * multiplicator
 time.out<-as.character(as.Date(time.out))
 
+# Correção POG 1 
+time.out[32:10957] <- time.out[33:10958]
+time.out[10958] <- as.character(as.Date(time.out[10958])+1)
 
 # Monta a tabela diaria: ano, mes, dia, duas componentes, fase e amplitude.
 miri.sa<-data.frame(Year=substr(time.out,1,4),
@@ -413,7 +417,7 @@ f6<-which(mirie[,6]==6 )
 f7<-which(mirie[,6]==7 )
 
 # Define a ordem dos compostos: fase 8, depois fases 1 a 7.
-nt.f<-list(f8,f1,f2,f3,f4,f5,f6,f7)
+nt.f<-list(f1,f2,f3,f4,f5,f6,f7,f8)
 
   prp.miri<-array(numeric(),c(nx.prp,ny.prp,8))
 

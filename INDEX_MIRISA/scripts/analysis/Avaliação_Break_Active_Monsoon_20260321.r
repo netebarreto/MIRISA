@@ -10,6 +10,8 @@ rm(list=ls())
 # Executar a partir de INDEX_MIRISA ou definir MIRISA_ROOT.
 source(file.path(Sys.getenv("MIRISA_ROOT", unset = "."), "config", "paths.R"))
 
+setwd("C:/Users/Nete/Documents/NETE_PROJETOS/AB00-PROJETOS_NETE/MIRISA_PROJECT/MIRISA_organizado/INDEX_MIRISA")
+
 library(dplyr)
 library(lme4)
 library(pROC)
@@ -17,21 +19,19 @@ library(ncdf4)
 
 f1 <- function(){shell("cls")}
 
-
-
 source("scripts/functions/R/Function_Data_nc_convert_20260320.R")
 source("scripts/functions/R/Function_monsoon_atividade_20260322.r")
 
-mirisa1<-read.table("outputs/tables/MIRISA_CLIM_19910401_20210331_CREATE_20260314.txt",sep=";",dec=".",header=T)
+mirisa1<-read.table("outputs/tables/MIRISA_CLIM_19910301_20210228_CREATE_20261007.txt",sep=";",dec=".",header=T)
 data1=as.Date(paste(mirisa1[,1],mirisa1[,2],mirisa1[,3],sep="-")) 
 
 #round(quantile(mirisa1$Amplitude,prob=c(0.2,0.4,0.6,0.8,0.95)),1)
 #20% 40% 60% 80% 95% 
-#               (Inativa)      0.6   0  
-#          0.6  (Fraca)        0.8   1
-#          0.8  (Ativa)        1.2   2
-#          1.2  (Forte)        1.5   3
-#          1.5  (Muito Forte)  2.1   4 
+#               (Inativa)      0.0   0  
+#          0.6  (Fraca)        1.0   1
+#          0.8  (Ativa)        2.0   2
+#          1.2  (Forte)        3.0   3
+#          1.5  (Muito Forte)  4.0   4 
 #          2.1  (Extrema)            5
 
     # LIMIARES ESCOLHIDOS PARA AS AMPLITUDES
@@ -47,10 +47,7 @@ data1=as.Date(paste(mirisa1[,1],mirisa1[,2],mirisa1[,3],sep="-"))
         #          1.5  (Ativa)        2.0   2
         #          2.0  (Extrema)            3
 
-mirisa1$cat_amp_num = findInterval(mirisa1$Amplitude,c(1.0,1.5,2.0))
-
-
-mirisa1$cat_amp_va = findInterval(mirisa1$Amplitude,c(1.5))
+mirisa1$amplitude_cat = findInterval(mirisa1$Amplitude,c(1.0,2.0,3.0,4.0))
 
 mirisa1$seas = NA 
 mirisa1$seas[mirisa1$Month %in% c(12,1,2)] = "DJF"
@@ -59,11 +56,12 @@ mirisa1$seas[mirisa1$Month %in% c(6,7,8)] = "JJA"
 mirisa1$seas[mirisa1$Month %in% c(9,10,11)] = "SON"
 
 #### 
-nc <- nc_open("outputs/netcdf/mpi.1981.2022.nc")
-rain = ncvar_get(nc, "precip", start=c(1,1,1),count=c(-1,-1,-1))
+nc <- nc_open("outputs/netcdf/monsoon.prec.index.cpc-noaa.19910301.20210228.nc")
+mpi = ncvar_get(nc, "precip", start=c(1,1,1),count=c(-1,-1,-1))
 time_nc = data_nc_convert(nc)
     
-mpi=data.frame(data = time_nc,mpi=rain)
+mpi=data.frame(data = time_nc,mpi=mpi)
+mpi[5842,2] = (mpi[5841,2]+mpi[5843,2])/2 
 
 ####### Avaliando os tempos iguais 
 
@@ -80,83 +78,19 @@ dados$breaks <- 0
 dados$active3d <- 0
 dados$breaks3d <- 0
 
-
-#######################################################
-    # CONSTRUINDO OS LAGS 
-
-################################
-# Lags 
-dados$Phase_lag_1  <- dplyr::lag(dados$Phase, 1)
-dados$Phase_lag_2  <- dplyr::lag(dados$Phase, 2)
-dados$Phase_lag_3  <- dplyr::lag(dados$Phase, 3)
-dados$Phase_lag_4  <- dplyr::lag(dados$Phase, 4)
-dados$Phase_lag_5  <- dplyr::lag(dados$Phase, 5)
-dados$Phase_lag_6  <- dplyr::lag(dados$Phase, 6)
-dados$Phase_lag_7  <- dplyr::lag(dados$Phase, 7)
-dados$Phase_lag_8  <- dplyr::lag(dados$Phase, 8)
-dados$Phase_lag_9  <- dplyr::lag(dados$Phase, 9)
-dados$Phase_lag_10 <- dplyr::lag(dados$Phase, 10)
-dados$Phase_lag_11 <- dplyr::lag(dados$Phase, 11)
-dados$Phase_lag_12 <- dplyr::lag(dados$Phase, 12)
-dados$Phase_lag_13 <- dplyr::lag(dados$Phase, 13)
-dados$Phase_lag_14 <- dplyr::lag(dados$Phase, 14)
-dados$Phase_lag_15  <- dplyr::lag(dados$Phase, 15)
-dados$Phase_lag_16  <- dplyr::lag(dados$Phase, 16)
-dados$Phase_lag_17  <- dplyr::lag(dados$Phase, 17)
-dados$Phase_lag_18 <- dplyr::lag(dados$Phase, 18)
-dados$Phase_lag_19 <- dplyr::lag(dados$Phase, 19)
-dados$Phase_lag_20 <- dplyr::lag(dados$Phase, 20)
-dados$Phase_lag_21 <- dplyr::lag(dados$Phase, 21)
-dados$Phase_lag_22 <- dplyr::lag(dados$Phase, 22)
-dados$Phase_lag_23 <- dplyr::lag(dados$Phase, 23)
-dados$Phase_lag_24 <- dplyr::lag(dados$Phase, 24)
-dados$Phase_lag_25 <- dplyr::lag(dados$Phase, 25)
-dados$Phase_lag_26 <- dplyr::lag(dados$Phase, 26)
-dados$Phase_lag_27 <- dplyr::lag(dados$Phase, 27)
-dados$Phase_lag_28 <- dplyr::lag(dados$Phase, 28)
-
-# Lags 
-dados$cat_amp_va_lag_1  <- dplyr::lag(dados$cat_amp_va, 1)
-dados$cat_amp_va_lag_2  <- dplyr::lag(dados$cat_amp_va, 2)
-dados$cat_amp_va_lag_3  <- dplyr::lag(dados$cat_amp_va, 3)
-dados$cat_amp_va_lag_4  <- dplyr::lag(dados$cat_amp_va, 4)
-dados$cat_amp_va_lag_5  <- dplyr::lag(dados$cat_amp_va, 5)
-dados$cat_amp_va_lag_6  <- dplyr::lag(dados$cat_amp_va, 6)
-dados$cat_amp_va_lag_7  <- dplyr::lag(dados$cat_amp_va, 7)
-dados$cat_amp_va_lag_8  <- dplyr::lag(dados$cat_amp_va, 8)
-dados$cat_amp_va_lag_9  <- dplyr::lag(dados$cat_amp_va, 9)
-dados$cat_amp_va_lag_10 <- dplyr::lag(dados$cat_amp_va, 10)
-dados$cat_amp_va_lag_11 <- dplyr::lag(dados$cat_amp_va, 11)
-dados$cat_amp_va_lag_12 <- dplyr::lag(dados$cat_amp_va, 12)
-dados$cat_amp_va_lag_13 <- dplyr::lag(dados$cat_amp_va, 13)
-dados$cat_amp_va_lag_14 <- dplyr::lag(dados$cat_amp_va, 14)
-dados$cat_amp_va_lag_15  <- dplyr::lag(dados$cat_amp_va, 15)
-dados$cat_amp_va_lag_16  <- dplyr::lag(dados$cat_amp_va, 16)
-dados$cat_amp_va_lag_17  <- dplyr::lag(dados$cat_amp_va, 17)
-dados$cat_amp_va_lag_18 <- dplyr::lag(dados$cat_amp_va, 18)
-dados$cat_amp_va_lag_19 <- dplyr::lag(dados$cat_amp_va, 19)
-dados$cat_amp_va_lag_20 <- dplyr::lag(dados$cat_amp_va, 20)
-dados$cat_amp_va_lag_21 <- dplyr::lag(dados$cat_amp_va, 21)
-dados$cat_amp_va_lag_22 <- dplyr::lag(dados$cat_amp_va, 22)
-dados$cat_amp_va_lag_23 <- dplyr::lag(dados$cat_amp_va, 23)
-dados$cat_amp_va_lag_24 <- dplyr::lag(dados$cat_amp_va, 24)
-dados$cat_amp_va_lag_25 <- dplyr::lag(dados$cat_amp_va, 25)
-dados$cat_amp_va_lag_26 <- dplyr::lag(dados$cat_amp_va, 26)
-dados$cat_amp_va_lag_27 <- dplyr::lag(dados$cat_amp_va, 27)
-dados$cat_amp_va_lag_28 <- dplyr::lag(dados$cat_amp_va, 28)
-
-
-###########################
-    #
-    #  ACTIVE
-    #
-
 active_ms = monsoon_active(dados,varname="mpi",1,type="active") 
+
+breaks_ms = monsoon_active(dados,varname="mpi",-1,type="break") 
+
+
+
+
 
 
 fases_active <- fase_in_monsoon(dados$Phase,
                               active_ms$start,
                               active_ms$end)
+
 
 amp_active <- mapply(function(s, e) mean(dados$Amplitude[s:e]),
                      active_ms$start,
@@ -166,13 +100,6 @@ amp_active <- mapply(function(s, e) mean(dados$Amplitude[s:e]),
 active_ms_all <- data.frame(Index=fases_active$index,
                             active_ms,fases_active[,-1],
                             amplitude=amp_active)
-
-      # active_all_djf = subset(active_ms_all,active_ms_all$seas=="DJF")
-      # active_3day_djf = subset(active_all_djf,active_all_djf$length>=3)
-   
-    #
-    #  BREAKS
-    #
 
 breaks_ms = monsoon_active(dados,varname="mpi",-1,type="break") 
 
