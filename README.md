@@ -1,62 +1,96 @@
-### 											     ASSIMILAÇÃO DOS DADOS DO MIRI.SA
+# MIRISA · Índice Multivariado Intrassazonal de Precipitação da América do Sul
 
-##### AA00-NC-BRUTOS : ['Base de Dados brutas em NC4 NC_classic ']
+Rotinas científicas para preparar dados, ajustar a **análise de máxima covariância (MCA)**, calcular e projetar o índice MIRISA e analisar suas fases e amplitudes na América do Sul.
 
-##### AA02-ANOM      : ['Anomalias Brutas']
+O repositório reúne processamento de precipitação, radiação de onda longa emergente (OLR) e circulação atmosférica, além de composições, diagramas de fase e análises de períodos ativos e inativos da monção sul-americana.
 
-##### AA03-APAD      : ['Anomalias padronizadas']
+**Branch:** `MIRISA_organizado`  
+**Estado:** estrutura organizada; implementação científica e execução completa ainda em validação.
 
-##### AA04-COEF_EXP  : ['Coeficiente de expansão']
+[Documentação do índice](INDEX_MIRISA/README.md) · [Organização dos dados](INDEX_MIRISA/data/README.md) · [Migração de arquivos](INDEX_MIRISA/MIGRACAO.md) · [Avaliação técnica](INDEX_MIRISA/AVALIACAO_TECNICA.md)
 
-#### Site para download das variaveis:
-#### *U-wind*
-          
-           https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis/Dailies/pressure/ 
- 
-#### *V-wind*
-           
-           https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis/Dailies/pressure/ 
- 
-#### *Rain CPC*
+## O que encontras aqui
 
- 
-###### _[Option 1]_ 
-			
-							https://psl.noaa.gov/data/gridded/data.cpc.globalprecip.html
- 
+| Diretório | Conteúdo |
+| --- | --- |
+| [INDEX_MIRISA](INDEX_MIRISA/README.md) | Cálculo, projeção e análise do MIRISA |
+| [INDEX_MIRISA/config](INDEX_MIRISA/config/README.md) | Caminhos de execução e períodos climatológicos |
+| [INDEX_MIRISA/scripts/preprocess](INDEX_MIRISA/scripts/preprocess/README.md) | Climatologias, anomalias, filtros e padronização |
+| [INDEX_MIRISA/scripts/index](INDEX_MIRISA/scripts/index/README.md) | Ajuste MCA e projeção nos padrões de referência |
+| [INDEX_MIRISA/scripts/analysis](INDEX_MIRISA/scripts/analysis/README.md) | Composições, diagnósticos e análise da monção |
+| [INDEX_MIRISA/scripts/plots](INDEX_MIRISA/scripts/plots/README.md) | Mapas e diagramas de fase |
+| [INDEX_MIRISA/scripts/functions](INDEX_MIRISA/scripts/functions/README.md) | Funções compartilhadas em R, Python e GrADS |
+| [INDEX_MIRISA/experiments](INDEX_MIRISA/experiments/README.md) | Versões históricas e protótipos |
+| [INDEX_MIRISA/data](INDEX_MIRISA/data/README.md) | Estrutura para dados locais por variável e tratamento |
+| [INDEX_MIRISA/outputs](INDEX_MIRISA/outputs/README.md) | Destinos de modelos, tabelas, NetCDF e figuras |
+| [E01_FILTRAGEM](E01_FILTRAGEM/README.md) | Documentação e exemplos de filtros digitais |
 
-###### _[Option 2]_ 
-			
-							ftp://ftp.cpc.ncep.noaa.gov/precip/CPC_UNI_PRCP/GAUGE_GLB/RT/
+## Começar
 
- 
-#### *OLR* 
-	
-					https://www.ncei.noaa.gov/data/outgoing-longwave-radiation-daily/access/
+Clona esta branch em uma pasta nova:
 
+```bash
+git clone --branch MIRISA_organizado --single-branch https://github.com/netebarreto/MIRISA.git
+cd MIRISA/INDEX_MIRISA
+```
 
-##### *TESTE DE AVALIAÇÃO (2023)*
-###### - VERIFICAR SE O FILTRO DO R É EQUIVALENTE AO FILTRO DO NCL
-###### - PACOTE DO R (signal)
-###### - PACOTE DO R library(seewave) *- ATUALIZADO: 26-02-2023* 
+As rotinas devem ser executadas a partir de `INDEX_MIRISA`. Para indicar outra localização, define `MIRISA_ROOT` com o caminho absoluto dessa pasta.
 
+Antes de executar, consulta o README da etapa, instala as dependências e fornece os arquivos de entrada. **O clone não inclui os NetCDF volumosos, os modelos ajustados nem as séries do índice disponíveis apenas na máquina local.** O [mapa de migração](INDEX_MIRISA/MIGRACAO.md) indica os destinos dos arquivos anteriores.
 
-##### *FAZER O TESTE DA MCA COM DIFERENTES FILTRAGENS*
-######  1 - BUTTERWORFH NO NCL (PERDE 40 DIAS)
-######  2 - PASSA-BANDA NO CDO (PROBLEMAS COM OLR, SEM TEMPO PRA CORRIGIR)
-######  3 - BUTTERWORFH NO R (RESPOSTAS COM POUCAS DIFERENÇAS DO NCL, MELHOR OPÇAO, POUCA PERDA DE SINAL)
-######  4 - BUTTERWORFH NO PYTHON (RESPOSTA DIFERENTES DO NCL) 
+## Organização dos dados
 
-##### *ATUALIZAÇÃO 26-02-2023* 
- ###### - FOI REAPLICADA A MCA NOS DADOS CLIMATOLÓGICOS, DE 1991-03-01 ATÉ 2020-02-28 (29 ANOS). PARA AGILIZAR O PROCESSO, FOI MULTIPLICADO OS VALORES APENAS NOS ARQUIVOS DE SAÍDA E SALVOS NOVAMENTE. 
+A hierarquia identifica variável, tratamento, fonte, versão/variante, nível, referência e método, quando aplicáveis:
 
-###### - TAMBÉM FOI CORRIGDO O PERFIL PARA CALCULO DAS FASES 
-    
-#### TROCANDO: _function(x1,x2) ---->> function(x2,x1)_
- 
-##### *ATUALIZAÇAO 01-05-2023* 
-###### - FOI CONCLUÍDO A ROTINA DO DIAGRAMA DA PHASE-SPACE NO PYTHON - EM INGLÊS OS TERMOS 
-###### - FOI TESTADO A PROJEÇAO DO MIRISA PARA O DIA 26-04-2023, RÁPIDO E FÁCIL 
+```text
+data/prec/anomalias/chirps/v3_final_rnl/1991_2020/
+data/uwnd/climatologia/ncep/200hpa/1981_2010/
+data/olr/filtrados/v01r02/1981_2020/butterworth_signal/
+data/static/masks/
+data/static/shapes/
+```
 
-#####  [É NECESSARIO VERIFICAR AS ROTINAS DE PRÉ-PROCESSAMENTO, DOS DADOS NCDF] 
+As variáveis são `prec`, `uwnd`, `vwnd` e `olr`. Os tratamentos incluem `brutos`, `recortados`, `climatologia`, `anomalias`, `filtrados`, `desvio_padrao` e `padronizados`. Produtos antigos com referência mista ou pendente de confirmação ficam identificados como `historico`.
 
+Pastas vazias são mantidas no Git por arquivos `.gitkeep`; sua existência não indica que os dados estejam disponíveis.
+
+## Referências climatológicas
+
+A configuração [climatology_periods.json](INDEX_MIRISA/config/climatology_periods.json) oferece:
+
+| Identificador | Período inclusivo |
+| --- | --- |
+| `1981_2010` | 01/01/1981 a 31/12/2010 |
+| `1991_2020` | 01/01/1991 a 31/12/2020 |
+| `1981_2020` | 01/01/1981 a 31/12/2020 |
+
+A rotina `scripts/preprocess/gerar_climatologias.sh` prepara médias diárias e anomalias para as referências selecionadas. O modo `standardize` recebe anomalias previamente filtradas e calcula o desvio de referência e a padronização. Consulta os [comandos e requisitos](INDEX_MIRISA/scripts/preprocess/README.md).
+
+**Período climatológico, cobertura da série e período de ajuste MCA são escolhas distintas.** Preparar essas referências não reestima automaticamente os modelos MCA nem altera as datas dos scripts históricos.
+
+## Fluxo de trabalho e dependências
+
+Preparação dos dados → anomalias → filtragem intrassazonal → padronização → ajuste MCA → projeção → fases, amplitudes e diagnósticos.
+
+- **Bash e CDO:** processamento NetCDF.
+- **R:** ajuste MCA, filtragem e análises; pacotes como `ncdf4`, `fields`, `signal` e `seewave`, conforme a rotina.
+- **Python:** climatologias, gráficos e notebooks; dependências específicas constam nos READMEs das etapas.
+- **GrADS:** rotinas de mapas que utilizam essa ferramenta.
+
+O projeto ainda não possui um ambiente único com todas as versões fixadas.
+
+## Estado da implementação
+
+A organização dos arquivos e as verificações de sintaxe/caminhos não equivalem à validação numérica do índice. Permanecem funções auxiliares ausentes, diferenças entre nomes de modelos salvos e carregados e questões de normalização, sinais e definição das componentes.
+
+Filtros bilaterais usam informação posterior ao dia estimado; sua aplicação retrospectiva exige cuidados adicionais quando o objetivo é previsão. As pendências estão documentadas na [avaliação técnica](INDEX_MIRISA/AVALIACAO_TECNICA.md).
+
+## Referência científica
+
+Barreto et al. (2019). **Multivariate intraseasonal rainfall index applied to South America**. *Meteorological Applications*. [https://doi.org/10.1002/met.1780](https://doi.org/10.1002/met.1780).
+
+Ao utilizar o método, cita o artigo e identifica a versão do código, as bases, os filtros e os períodos empregados. A correspondência entre cada rotina e a formulação publicada deve ser verificada.
+
+## Licença
+
+Esta branch ainda não contém um arquivo de licença. As condições de reutilização do código e as licenças das bases de dados devem ser verificadas separadamente.
