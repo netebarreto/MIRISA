@@ -23,7 +23,7 @@ Funções ficam dentro de scripts, separadas por linguagem. Nomes datados das ro
 ## Obter esta organização
 
 ```bash
-git clone --branch organiza-index-mirisa --single-branch https://github.com/netebarreto/MIRISA.git MIRISA_organizado
+git clone --branch MIRISA_organizado --single-branch https://github.com/netebarreto/MIRISA.git MIRISA_organizado
 cd MIRISA_organizado/INDEX_MIRISA
 ```
 
