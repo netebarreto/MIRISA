@@ -25,22 +25,22 @@ python -m venv .venv
 # Linux/macOS:
 source .venv/bin/activate
 # Windows PowerShell: .venv\Scripts\Activate.ps1
-python -m pip install -r E01_FILTRAGEM/requirements.txt
-python E01_FILTRAGEM/scripts/comparar_filtros.py
+python -m pip install -r FILTRAGEM_PASSA_BANDA/requirements.txt
+python FILTRAGEM_PASSA_BANDA/scripts/comparar_filtros.py
 ```
 
-Abre os arquivos SVG em `E01_FILTRAGEM/resultados/local/` no navegador. As saídas incluem séries, resposta em frequência, espectros, bordas/fase, métricas CSV e parâmetros/versões JSON. O programa não baixa dados e pode ser executado de qualquer diretório: os caminhos padrão são relativos ao próprio script.
+Abre os arquivos SVG em `FILTRAGEM_PASSA_BANDA/resultados/local/` no navegador. As saídas incluem séries, resposta em frequência, espectros, bordas/fase, métricas CSV e parâmetros/versões JSON. O programa não baixa dados e pode ser executado de qualquer diretório: os caminhos padrão são relativos ao próprio script.
 
 Edita [parametros.json](exemplos/parametros.json) para trocar a banda, a amostragem, a janela FIR ou as especificações IIR. Para guardar outro experimento:
 
 ```bash
-python E01_FILTRAGEM/scripts/comparar_filtros.py --config E01_FILTRAGEM/exemplos/parametros.json --saida E01_FILTRAGEM/resultados/local/experimento_02
+python FILTRAGEM_PASSA_BANDA/scripts/comparar_filtros.py --config FILTRAGEM_PASSA_BANDA/exemplos/parametros.json --saida FILTRAGEM_PASSA_BANDA/resultados/local/experimento_02
 ```
 
 Para executar as verificações numéricas:
 
 ```bash
-python E01_FILTRAGEM/scripts/verificar_filtros.py
+python FILTRAGEM_PASSA_BANDA/scripts/verificar_filtros.py
 ```
 
 ## Comparações já geradas

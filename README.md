@@ -23,7 +23,7 @@ O repositório reúne processamento de precipitação, radiação de onda longa 
 | [INDEX_MIRISA/experiments](INDEX_MIRISA/experiments/README.md) | Versões históricas e protótipos |
 | [INDEX_MIRISA/data](INDEX_MIRISA/data/README.md) | Estrutura para dados locais por variável e tratamento |
 | [INDEX_MIRISA/outputs](INDEX_MIRISA/outputs/README.md) | Destinos de modelos, tabelas, NetCDF e figuras |
-| [E01_FILTRAGEM](E01_FILTRAGEM/README.md) | Documentação e exemplos de filtros digitais |
+| [FILTRAGEM_PASSA_BANDA](FILTRAGEM_PASSA_BANDA/README.md) | Documentação e exemplos de filtros digitais |
 
 ## Começar
 
