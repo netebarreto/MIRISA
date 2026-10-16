@@ -1,0 +1,11 @@
+{
+  "dt_dias": 1.0,
+  "periodo_min_dias": 30.0,
+  "periodo_max_dias": 90.0,
+  "n_amostras": 3650,
+  "numtaps": 401,
+  "perda_passagem_db": 1.0,
+  "atenuacao_rejeicao_db": 40.0,
+  "margem_periodos": 3.0,
+  "seed": 42
+}

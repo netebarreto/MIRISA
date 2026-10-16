@@ -1,0 +1,34 @@
+{
+  "config": {
+    "dt_dias": 1.0,
+    "periodo_min_dias": 30.0,
+    "periodo_max_dias": 90.0,
+    "n_amostras": 3650,
+    "numtaps": 401,
+    "perda_passagem_db": 1.0,
+    "atenuacao_rejeicao_db": 40.0,
+    "margem_periodos": 3.0,
+    "seed": 42
+  },
+  "margem_amostras": 270,
+  "intervalo_interior_indices": [
+    270,
+    3380
+  ],
+  "periodos_alvo_dias": [
+    44.067021138002225,
+    64.73007839923778
+  ],
+  "wp_ciclos_dia": [
+    0.011111111111111112,
+    0.03333333333333333
+  ],
+  "ws_ciclos_dia": [
+    0.0077777777777777776,
+    0.043333333333333335
+  ],
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "matplotlib": "3.10.8"
+}
