@@ -23,11 +23,30 @@ Os dois primeiros modos representam, respectivamente, **56% e 15% da covariânci
 
 > **Identificação do período:** o nome do PNG e as entradas registradas em [parametros_figura1.json](INDEX_MIRISA/outputs/figures/parametros_figura1.json) indicam 1991–2020, mas o rodapé da imagem informa 1981–2010. Essa divergência deve ser resolvida na rotina de origem e a figura regenerada antes de sua utilização como versão definitiva.
 
+
+### Evolução no espaço de fases
+As trajetórias representam a evolução das composições do MIRISA associadas às oito fases, no espaço definido por suas duas primeiras componentes. As defasagens negativas indicam os dias anteriores ao dia de referência (lag 0), permitindo acompanhar a evolução da fase e da amplitude do índice. A distância à origem expressa a amplitude, e o círculo central delimita o valor 1. Os rótulos externos indicam as regiões de precipitação associadas ao MIRISA e a localização da convecção associada à Oscilação Madden–Julian (MJO).
+
+
+<p align="center">
+  <a href="INDEX_MIRISA/outputs/figures/MIRISA_COMPOSITE_DIAG_T1.png">
+    <img
+      src="INDEX_MIRISA/outputs/figures/MIRISA_COMPOSITE_DIAG_T1.png"
+      alt="Evolução do MIRISA no espaço de fases"
+      width="500"
+      heigth="500"
+    >
+  </a>
+</p>
+
+**Figura 2.** Evolução das composições do MIRISA no espaço definido por suas duas primeiras componentes. As curvas coloridas representam trajetórias associadas às oito fases, com pontos em intervalos diários e números indicando defasagens em dias em relação ao dia de referência (lag 0); valores negativos correspondem aos dias anteriores. A distância à origem expressa a amplitude do índice, e o círculo central delimita amplitude igual a 1. As linhas dividem o espaço em oito setores de fase. Os rótulos externos indicam as regiões de precipitação associadas ao MIRISA (azul) e a localização da convecção associada à Oscilação Madden–Julian — MJO (preto).
+
+
 ### Composições das oito fases
 
 [![Composições de OLR, circulação em 850 hPa e precipitação nas oito fases do MIRISA](INDEX_MIRISA/outputs/figures/COMPOSICAO_MIRISA_python.png)](INDEX_MIRISA/outputs/figures/COMPOSICAO_MIRISA_python.png)
 
-**Figura 2.** Composições associadas às oito fases do MIRISA. À esquerda, anomalias de OLR (W m⁻²) e linhas de corrente em 850 hPa; à direita, anomalias de precipitação na América do Sul (mm dia⁻¹). Na escala de OLR, azul indica anomalias negativas e vermelho, positivas; na precipitação, azul indica anomalias positivas e vermelho, negativas.
+**Figura 3.** Composições associadas às oito fases do MIRISA. À esquerda, anomalias de OLR (W m⁻²) e linhas de corrente em 850 hPa; à direita, anomalias de precipitação na América do Sul (mm dia⁻¹). Na escala de OLR, azul indica anomalias negativas e vermelho, positivas; na precipitação, azul indica anomalias positivas e vermelho, negativas.
 
 **Amostra da composição:** a imagem não informa o período, os meses selecionados, o limiar de amplitude ou eventual teste de significância. Esses critérios precisam ser confirmados na execução que produziu o PNG; por isso, esta composição é apresentada como ilustração das fases, sem atribuição definitiva à referência de 1991–2020. Clica na imagem para consultar os painéis em tamanho original.
 
