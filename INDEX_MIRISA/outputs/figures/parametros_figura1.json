@@ -1,0 +1,47 @@
+{
+  "referencia": "Barreto et al. (2019), doi:10.1002/met.1780",
+  "entradas": {
+    "prec": "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\prec.mirisa.mca.cpc.19910101.20201231.nc",
+    "vento": "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\uwnd.mirisa.mca.ncep-r1.19910101.20201231.nc",
+    "olr": "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\olr.mirisa.mca.v01r02.19910101.20201231.nc"
+  },
+  "modos_base_1": [
+    1,
+    2
+  ],
+  "sinais_por_modo": [
+    1,
+    1
+  ],
+  "scf_informada": [
+    0.56,
+    0.15
+  ],
+  "scf_arquivo": "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\tables\\mca_mirisa_fracao_covariancia_quadratica_1991-2020.txt",
+  "limites_cores": [
+    -0.035,
+    -0.03,
+    -0.025,
+    -0.02,
+    -0.015,
+    -0.01,
+    -0.005,
+    0.005,
+    0.01,
+    0.015,
+    0.02,
+    0.025,
+    0.03,
+    0.035
+  ],
+  "saidas": [
+    "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\figures\\MIRISA_MCA_1991_2020.png"
+  ],
+  "observacoes": [
+    "Registros Time interpretados como modos; confirmar na origem.",
+    "Sem filtragem, renormalização ou interpolação.",
+    "Faixa -0.005 a 0.005 branca; missing também branco.",
+    "Perfis mantidos nas respectivas grades longitudinais.",
+    "Período dos nomes difere do período do artigo."
+  ]
+}
