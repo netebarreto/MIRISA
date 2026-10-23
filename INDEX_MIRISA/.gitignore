@@ -3,6 +3,8 @@ data/**/*.nc
 !data/**/
 !data/**/.gitkeep
 !data/**/README.md
+!**/climatologia/**
+!**/desvio_padrao/**
 outputs/**
 !outputs/tables/**
 !outputs/figures/**
@@ -15,3 +17,4 @@ __pycache__/
 .Rhistory
 .RData
 config/*.local.*
+
