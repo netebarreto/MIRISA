@@ -4,7 +4,7 @@ Rotinas científicas para preparar dados, ajustar a **análise de máxima covari
 
 O repositório reúne processamento de precipitação, radiação de onda longa emergente (OLR) e circulação atmosférica, além de composições, diagramas de fase e análises de períodos ativos e inativos da monção sul-americana.
 
-**Branch:** `MIRISA_organizado`  
+**Branch principal:** `main`  
 **Estado:** estrutura organizada; implementação científica e execução completa ainda em validação.
 
 [Documentação do índice](INDEX_MIRISA/README.md) · [Organização dos dados](INDEX_MIRISA/data/README.md) · [Migração de arquivos](INDEX_MIRISA/MIGRACAO.md) · [Avaliação técnica](INDEX_MIRISA/AVALIACAO_TECNICA.md)
@@ -23,14 +23,14 @@ O repositório reúne processamento de precipitação, radiação de onda longa 
 | [INDEX_MIRISA/experiments](INDEX_MIRISA/experiments/README.md) | Versões históricas e protótipos |
 | [INDEX_MIRISA/data](INDEX_MIRISA/data/README.md) | Estrutura para dados locais por variável e tratamento |
 | [INDEX_MIRISA/outputs](INDEX_MIRISA/outputs/README.md) | Destinos de modelos, tabelas, NetCDF e figuras |
-| [E01_FILTRAGEM](E01_FILTRAGEM/README.md) | Documentação e exemplos de filtros digitais |
+| [FILTRAGEM_PASSA_BANDA](FILTRAGEM_PASSA_BANDA/README.md) | Documentação e exemplos de filtros digitais |
 
 ## Começar
 
-Clona esta branch em uma pasta nova:
+Clona a branch principal em uma pasta nova:
 
 ```bash
-git clone --branch MIRISA_organizado --single-branch https://github.com/netebarreto/MIRISA.git
+git clone --branch main --single-branch https://github.com/netebarreto/MIRISA.git
 cd MIRISA/INDEX_MIRISA
 ```
 
@@ -107,4 +107,12 @@ Ao utilizar o método, cita o artigo e identifica a versão do código, as bases
 
 ## Licença
 
-Esta branch ainda não contém um arquivo de licença. As condições de reutilização do código e as licenças das bases de dados devem ser verificadas separadamente.
+O código original deste projeto é disponibilizado sob a **GNU General Public License, versão 3 (GPLv3)** — identificador SPDX: `GPL-3.0-only`. Consulta o texto integral em [LICENSE](LICENSE).
+
+A licença permite uso, modificação e redistribuição, inclusive comercial, sob suas condições. A distribuição de versões modificadas deve cumprir as obrigações de disponibilização do código-fonte e manutenção da licença. O software é fornecido sem garantia, nos termos da GPLv3.
+
+Códigos de terceiros, bases de dados e publicações mantêm suas próprias licenças e avisos de autoria. O financiamento não substitui a identificação dos autores e titulares dos direitos.
+
+## Agradecimentos
+
+Parte do desenvolvimento deste projeto contou com apoio do **Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)**, por meio do **processo nº 153540/2016-8**.
