@@ -9,6 +9,37 @@ O repositório reúne processamento de precipitação, radiação de onda longa 
 
 [Documentação do índice](INDEX_MIRISA/README.md) · [Organização dos dados](INDEX_MIRISA/data/README.md) · [Migração de arquivos](INDEX_MIRISA/MIGRACAO.md) · [Avaliação técnica](INDEX_MIRISA/AVALIACAO_TECNICA.md)
 
+## MIRISA — referência climatológica 1991–2020
+
+Os produtos abaixo apresentam os padrões espaciais da MCA associados à referência de 1991–2020 e ilustram a representação do MIRISA em oito fases. O período climatológico, o período de ajuste e a amostra usada em cada composição devem ser identificados separadamente.
+
+### Padrões espaciais da MCA
+
+Os dois primeiros modos representam, respectivamente, **56% e 15% da covariância quadrática total**, somando **71%**, conforme a [tabela de frações de covariância](INDEX_MIRISA/outputs/tables/mca_mirisa_fracao_covariancia_quadratica_1991-2020.txt). Esses percentuais não correspondem à variância explicada da precipitação isoladamente.
+
+[![Padrões espaciais dos dois primeiros modos da MCA, arquivo identificado como 1991–2020](INDEX_MIRISA/outputs/figures/MIRISA_MCA_1991_2020.png)](INDEX_MIRISA/outputs/figures/MIRISA_MCA_1991_2020.png)
+
+**Figura 1.** Padrões espaciais de precipitação na América do Sul (painéis a e c) e perfis longitudinais de OLR e vento zonal em 850 e 200 hPa na faixa de 15°S–15°N (painéis b e d), para os dois primeiros modos da MCA. As cores dos mapas representam os coeficientes espaciais da precipitação.
+
+> **Identificação do período:** o nome do PNG e as entradas registradas em [parametros_figura1.json](INDEX_MIRISA/outputs/figures/parametros_figura1.json) indicam 1991–2020, mas o rodapé da imagem informa 1981–2010. Essa divergência deve ser resolvida na rotina de origem e a figura regenerada antes de sua utilização como versão definitiva.
+
+### Composições das oito fases
+
+[![Composições de OLR, circulação em 850 hPa e precipitação nas oito fases do MIRISA](INDEX_MIRISA/outputs/figures/COMPOSICAO_MIRISA_python.png)](INDEX_MIRISA/outputs/figures/COMPOSICAO_MIRISA_python.png)
+
+**Figura 2.** Composições associadas às oito fases do MIRISA. À esquerda, anomalias de OLR (W m⁻²) e linhas de corrente em 850 hPa; à direita, anomalias de precipitação na América do Sul (mm dia⁻¹). Na escala de OLR, azul indica anomalias negativas e vermelho, positivas; na precipitação, azul indica anomalias positivas e vermelho, negativas.
+
+**Amostra da composição:** a imagem não informa o período, os meses selecionados, o limiar de amplitude ou eventual teste de significância. Esses critérios precisam ser confirmados na execução que produziu o PNG; por isso, esta composição é apresentada como ilustração das fases, sem atribuição definitiva à referência de 1991–2020. Clica na imagem para consultar os painéis em tamanho original.
+
+<details>
+<summary>Ver diagrama de evolução no espaço de fases</summary>
+
+[![Diagrama de evolução no espaço de fases do MIRISA](INDEX_MIRISA/outputs/figures/MIRISA_COMPOSITE_DIAG_T1.png)](INDEX_MIRISA/outputs/figures/MIRISA_COMPOSITE_DIAG_T1.png)
+
+**Figura 3.** Diagrama disponível no repositório com trajetórias no espaço de fases e indicações regionais de precipitação e da MJO. O período de referência, a definição das trajetórias coloridas e a convenção das defasagens devem ser documentados antes de sua interpretação quantitativa ou associação à climatologia de 1991–2020.
+
+</details>
+
 ## O que encontras aqui
 
 | Diretório | Conteúdo |
