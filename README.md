@@ -1,14 +1,87 @@
-# MIRISA · Índice Multivariado Intrassazonal de Precipitação da América do Sul
+<div align="center">
 
-Rotinas científicas para preparar dados, ajustar a **análise de máxima covariância (MCA)**, calcular e projetar o índice MIRISA e analisar suas fases e amplitudes na América do Sul.
+  <h1>MIRISA</h1>
 
-O repositório reúne processamento de precipitação, radiação de onda longa emergente (OLR) e circulação atmosférica, além de composições, diagramas de fase e análises de períodos ativos e inativos da monção sul-americana.
+  <h3>Índice Multivariado Intrassazonal de Precipitação da América do Sul</h3>
 
-**Branch principal:** `main`  
-**Estado:** estrutura organizada; implementação científica e execução completa ainda em validação.
+  <p>
+    Precipitação, convecção e circulação tropical:
+    uma perspectiva integrada da variabilidade intrassazonal.
+  </p>
 
-[Documentação do índice](INDEX_MIRISA/README.md) · [Organização dos dados](INDEX_MIRISA/data/README.md) · [Migração de arquivos](INDEX_MIRISA/MIGRACAO.md) · [Avaliação técnica](INDEX_MIRISA/AVALIACAO_TECNICA.md)
+  <p>
+    <a href="#sobre-o-mirisa">Sobre o MIRISA</a> •
+    <a href="#motivação-e-problema-científico">Motivação</a> •
+    <a href="#a-ideia-do-índice">Metodologia</a> •
+    <a href="#perspectivas">Perspectivas</a> •
+    <a href="#estrutura">Estrutura</a> •
+    <a href="INDEX_MIRISA/README.md">Documentação</a>
+  </p>
 
+  <p>
+    <a href="https://doi.org/10.1002/met.1780">
+      <img
+        src="https://img.shields.io/badge/DOI-10.1002%2Fmet.1780-164B70?style=for-the-badge"
+        alt="Artigo de referência"
+      >
+    </a>
+    <a href="LICENSE">
+      <img
+        src="https://img.shields.io/badge/Licen%C3%A7a-GPLv3-527A38?style=for-the-badge"
+        alt="Licença GPLv3"
+      >
+    </a>
+    <img
+      src="https://img.shields.io/badge/Escala-Intrassazonal-287D8E?style=for-the-badge"
+      alt="Escala intrassazonal"
+    >
+  </p>
+
+</div>
+<p align="center">
+O desenvolvimento deste projeto contou com apoio financeiro da <strong>CAPES</strong> e do
+  <strong>CNPq</strong>, por meio da concessão de bolsas de doutorado e pós-doutorado, respectivamente (processo CNPq nº 153540/2016-8).
+</p>
+
+## Sobre o MIRISA
+
+O **MIRISA — Índice Multivariado Intrassazonal de Precipitação da América do Sul** foi desenvolvido para representar a evolução das anomalias de chuva no continente e sua associação com a convecção e a circulação atmosférica tropical. Sua proposta é incorporar diretamente a precipitação regional à construção de um índice que permita acompanhar a **fase e a amplitude da variabilidade intrassazonal**.
+
+### Motivação e problema científico
+
+Uma estação chuvosa pode apresentar um total próximo da média e, ainda assim, concentrar a precipitação em poucos episódios, intercalados por períodos prolongados de pouca chuva. Essa distribuição temporal importa para a disponibilidade hídrica, a agricultura, a geração de energia e a ocorrência de desastres.
+
+Compreender essas alternâncias exige investigar os processos que organizam a chuva em escalas de semanas a poucos meses. Entre eles, destaca-se a Oscilação Madden–Julian (MJO), cuja evolução pode influenciar a convecção e a circulação sobre a América do Sul. Entretanto, a resposta regional depende da localização, da época do ano e da configuração atmosférica.
+
+**Como representar a variabilidade intrassazonal de grande escala mantendo a precipitação sul-americana no centro da análise?** Essa pergunta orienta o desenvolvimento do MIRISA.
+
+### A ideia do índice
+
+O MIRISA utiliza a **Análise de Máxima Covariância (MCA)** para identificar padrões de variabilidade conjunta entre dois conjuntos de dados: a precipitação sobre a América do Sul e os campos tropicais de radiação de onda longa emergente (OLR) e vento zonal em 850 e 200 hPa.
+
+Na formulação publicada, as anomalias diárias são filtradas na banda de **20–100 dias**. As séries temporais dos dois primeiros modos da MCA são combinadas para construir duas componentes do índice, representadas em um diagrama com oito fases.
+
+A fase situa o estado do índice nesse espaço, enquanto a amplitude expressa sua distância à origem. As composições permitem examinar os padrões de precipitação, convecção e circulação associados a cada fase. Uma amplitude elevada indica maior expressão do sinal representado pelo índice; sua relação com chuva intensa ou deficiência de precipitação depende da região e precisa ser avaliada.
+
+### Por que utilizar o MIRISA?
+
+Seu diferencial é estabelecer uma ligação estatística explícita entre **a chuva regional e a configuração atmosférica tropical**. Isso permite investigar como padrões de precipitação se organizam e evoluem durante o ciclo intrassazonal, incluindo situações com anomalias de sinais opostos em diferentes setores do continente.
+
+O índice oferece, assim, uma referência para estudar a persistência e as transições desses padrões, sua relação com a MJO e sua associação com períodos de intensificação e enfraquecimento das chuvas.
+
+### Perspectivas
+
+As próximas etapas de pesquisa incluem avaliar a relação entre fases e amplitudes do MIRISA e a ocorrência de períodos ativos e inativos da monção sul-americana, considerando duração, intensidade e defasagem temporal. Também interessa investigar a estabilidade dos padrões diante de diferentes bases de dados e períodos climatológicos.
+
+Outra perspectiva é avaliar sua contribuição para o monitoramento e a previsão subsazonal. Essa aplicação requer verificar o desempenho com dados disponíveis na data de emissão, o tratamento das bordas da filtragem e a capacidade de antecipar condições regionais.
+
+Este repositório reúne as rotinas e a documentação necessárias para tornar essas análises reproduzíveis e apoiar o desenvolvimento científico do MIRISA.
+
+### Referência principal
+
+Barreto et al. (2019). **Multivariate intraseasonal rainfall index applied to South America**. *Meteorological Applications*, 26, 521–527. [https://doi.org/10.1002/met.1780](https://doi.org/10.1002/met.1780).
+
+# 
 ## MIRISA — referência climatológica 1991–2020
 
 Os produtos abaixo apresentam os padrões espaciais da MCA associados à referência de 1991–2020 e ilustram a representação do MIRISA em oito fases. O período climatológico, o período de ajuste e a amostra usada em cada composição devem ser identificados separadamente.
@@ -50,14 +123,17 @@ As trajetórias representam a evolução das composições do MIRISA associadas 
 
 **Amostra da composição:** a imagem não informa o período, os meses selecionados, o limiar de amplitude ou eventual teste de significância. Esses critérios precisam ser confirmados na execução que produziu o PNG; por isso, esta composição é apresentada como ilustração das fases, sem atribuição definitiva à referência de 1991–2020. Clica na imagem para consultar os painéis em tamanho original.
 
-<details>
-<summary>Ver diagrama de evolução no espaço de fases</summary>
+### Estrutura
 
-[![Diagrama de evolução no espaço de fases do MIRISA](INDEX_MIRISA/outputs/figures/MIRISA_COMPOSITE_DIAG_T1.png)](INDEX_MIRISA/outputs/figures/MIRISA_COMPOSITE_DIAG_T1.png)
+Rotinas científicas para preparar dados, ajustar a **análise de máxima covariância (MCA)**, calcular e projetar o índice MIRISA e analisar suas fases e amplitudes na América do Sul.
 
-**Figura 3.** Diagrama disponível no repositório com trajetórias no espaço de fases e indicações regionais de precipitação e da MJO. O período de referência, a definição das trajetórias coloridas e a convenção das defasagens devem ser documentados antes de sua interpretação quantitativa ou associação à climatologia de 1991–2020.
+O repositório reúne processamento de precipitação, radiação de onda longa emergente (OLR) e circulação atmosférica, além de composições, diagramas de fase e análises de períodos ativos e inativos da monção sul-americana.
 
-</details>
+**Branch principal:** `main`  
+**Estado:** estrutura organizada; implementação científica e execução completa ainda em validação.
+
+[Documentação do índice](INDEX_MIRISA/README.md) · [Organização dos dados](INDEX_MIRISA/data/README.md) · [Migração de arquivos](INDEX_MIRISA/MIGRACAO.md) · [Avaliação técnica](INDEX_MIRISA/AVALIACAO_TECNICA.md)
+
 
 ## O que encontras aqui
 
