@@ -225,12 +225,6 @@ A organização dos arquivos e as verificações de sintaxe/caminhos não equiva
 
 Filtros bilaterais usam informação posterior ao dia estimado; sua aplicação retrospectiva exige cuidados adicionais quando o objetivo é previsão. As pendências estão documentadas na [avaliação técnica](INDEX_MIRISA/AVALIACAO_TECNICA.md).
 
-## Referência científica
-
-Barreto et al. (2019). **Multivariate intraseasonal rainfall index applied to South America**. *Meteorological Applications*. [https://doi.org/10.1002/met.1780](https://doi.org/10.1002/met.1780).
-
-Ao utilizar o método, cita o artigo e identifica a versão do código, as bases, os filtros e os períodos empregados. A correspondência entre cada rotina e a formulação publicada deve ser verificada.
-
 ## Licença
 
 O código original deste projeto é disponibilizado sob a **GNU General Public License, versão 3 (GPLv3)** — identificador SPDX: `GPL-3.0-only`. Consulta o texto integral em [LICENSE](LICENSE).
@@ -239,6 +233,3 @@ A licença permite uso, modificação e redistribuição, inclusive comercial, s
 
 Códigos de terceiros, bases de dados e publicações mantêm suas próprias licenças e avisos de autoria. O financiamento não substitui a identificação dos autores e titulares dos direitos.
 
-## Agradecimentos
-
-Parte do desenvolvimento deste projeto contou com apoio do **Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq)**, por meio do **processo nº 153540/2016-8**.
