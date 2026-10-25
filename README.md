@@ -11,10 +11,9 @@
 
   <p>
     <a href="#sobre-o-mirisa">Sobre o MIRISA</a> •
-    <a href="#motivação-e-problema-científico">Motivação</a> •
-    <a href="#a-ideia-do-índice">Metodologia</a> •
-    <a href="#perspectivas">Perspectivas</a> •
-    <a href="#estrutura">Estrutura</a> •
+    <a href="#caracterização-do-mirisa">Caracterização do MIRISA (1991–2020)</a> •
+    <a href="#organização_do_projeto">Organização do projeto</a> •
+     <a href="#Licença">Licença</a> •     
     <a href="INDEX_MIRISA/README.md">Documentação</a>
   </p>
 
@@ -63,7 +62,7 @@ Na formulação publicada, as anomalias diárias são filtradas na banda de **20
 
 A fase situa o estado do índice nesse espaço, enquanto a amplitude expressa sua distância à origem. As composições permitem examinar os padrões de precipitação, convecção e circulação associados a cada fase. Uma amplitude elevada indica maior expressão do sinal representado pelo índice; sua relação com chuva intensa ou deficiência de precipitação depende da região e precisa ser avaliada.
 
-### Por que utilizar o MIRISA?
+### Diferenciais do MIRISA
 
 Seu diferencial é estabelecer uma ligação estatística explícita entre **a chuva regional e a configuração atmosférica tropical**. Isso permite investigar como padrões de precipitação se organizam e evoluem durante o ciclo intrassazonal, incluindo situações com anomalias de sinais opostos em diferentes setores do continente.
 
@@ -82,7 +81,7 @@ Este repositório reúne as rotinas e a documentação necessárias para tornar 
 Barreto et al. (2019). **Multivariate intraseasonal rainfall index applied to South America**. *Meteorological Applications*, 26, 521–527. [https://doi.org/10.1002/met.1780](https://doi.org/10.1002/met.1780).
 
 # 
-## MIRISA — referência climatológica 1991–2020
+## Caracterização do MIRISA (1991–2020)
 
 Os produtos abaixo apresentam os padrões espaciais da MCA associados à referência de 1991–2020 e ilustram a representação do MIRISA em oito fases. O período climatológico, o período de ajuste e a amostra usada em cada composição devem ser identificados separadamente.
 
@@ -123,7 +122,7 @@ As trajetórias representam a evolução das composições do MIRISA associadas 
 
 **Amostra da composição:** a imagem não informa o período, os meses selecionados, o limiar de amplitude ou eventual teste de significância. Esses critérios precisam ser confirmados na execução que produziu o PNG; por isso, esta composição é apresentada como ilustração das fases, sem atribuição definitiva à referência de 1991–2020. Clica na imagem para consultar os painéis em tamanho original.
 
-### Estrutura
+## Organização do projeto
 
 Rotinas científicas para preparar dados, ajustar a **análise de máxima covariância (MCA)**, calcular e projetar o índice MIRISA e analisar suas fases e amplitudes na América do Sul.
 
@@ -135,7 +134,7 @@ O repositório reúne processamento de precipitação, radiação de onda longa 
 [Documentação do índice](INDEX_MIRISA/README.md) · [Organização dos dados](INDEX_MIRISA/data/README.md) · [Migração de arquivos](INDEX_MIRISA/MIGRACAO.md) · [Avaliação técnica](INDEX_MIRISA/AVALIACAO_TECNICA.md)
 
 
-## O que encontras aqui
+### Estrutura do repositório
 
 | Diretório | Conteúdo |
 | --- | --- |
@@ -151,7 +150,7 @@ O repositório reúne processamento de precipitação, radiação de onda longa 
 | [INDEX_MIRISA/outputs](INDEX_MIRISA/outputs/README.md) | Destinos de modelos, tabelas, NetCDF e figuras |
 | [FILTRAGEM_PASSA_BANDA](FILTRAGEM_PASSA_BANDA/README.md) | Documentação e exemplos de filtros digitais |
 
-## Começar
+### Começar
 
 Clona a branch principal em uma pasta nova:
 
@@ -164,7 +163,7 @@ As rotinas devem ser executadas a partir de `INDEX_MIRISA`. Para indicar outra l
 
 Antes de executar, consulta o README da etapa, instala as dependências e fornece os arquivos de entrada. **O clone não inclui os NetCDF volumosos, os modelos ajustados nem as séries do índice disponíveis apenas na máquina local.** O [mapa de migração](INDEX_MIRISA/MIGRACAO.md) indica os destinos dos arquivos anteriores.
 
-## Download das variáveis
+### Download das variáveis
 
 Links de referência para localizar os dados usados nas rotinas:
 
@@ -178,7 +177,7 @@ Links de referência para localizar os dados usados nas rotinas:
 
 Após o download, organiza os arquivos conforme [data/README.md](INDEX_MIRISA/data/README.md).
 
-## Organização dos dados
+### Organização dos dados
 
 A hierarquia identifica variável, tratamento, fonte, versão/variante, nível, referência e método, quando aplicáveis:
 
@@ -194,7 +193,7 @@ As variáveis são `prec`, `uwnd`, `vwnd` e `olr`. Os tratamentos incluem `bruto
 
 Pastas vazias são mantidas no Git por arquivos `.gitkeep`; sua existência não indica que os dados estejam disponíveis.
 
-## Referências climatológicas
+### Referências climatológicas
 
 A configuração [climatology_periods.json](INDEX_MIRISA/config/climatology_periods.json) oferece:
 
@@ -208,7 +207,7 @@ A rotina `scripts/preprocess/gerar_climatologias.sh` prepara médias diárias e 
 
 **Período climatológico, cobertura da série e período de ajuste MCA são escolhas distintas.** Preparar essas referências não reestima automaticamente os modelos MCA nem altera as datas dos scripts históricos.
 
-## Fluxo de trabalho e dependências
+### Fluxo de trabalho e dependências
 
 Preparação dos dados → anomalias → filtragem intrassazonal → padronização → ajuste MCA → projeção → fases, amplitudes e diagnósticos.
 
@@ -219,7 +218,7 @@ Preparação dos dados → anomalias → filtragem intrassazonal → padronizaç
 
 O projeto ainda não possui um ambiente único com todas as versões fixadas.
 
-## Estado da implementação
+### Estado da implementação
 
 A organização dos arquivos e as verificações de sintaxe/caminhos não equivalem à validação numérica do índice. Permanecem funções auxiliares ausentes, diferenças entre nomes de modelos salvos e carregados e questões de normalização, sinais e definição das componentes.
 
