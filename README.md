@@ -1,15 +1,15 @@
-<div align="center">
-
-  <h1>MIRISA</h1>
-
-  <h3>Índice Multivariado Intrassazonal de Precipitação da América do Sul</h3>
-
-  <p>
+<p align="center">
+    <img
+      src="logo_MIRISA.png"
+      width="600"
+    >
+  <h1> </h1>
+ 
+<p align="center">
     Precipitação, convecção e circulação tropical:
     uma perspectiva integrada da variabilidade intrassazonal.
-  </p>
-
-  <p>
+</p>
+<p align="center">
     <a href="#sobre-o-mirisa">Sobre o MIRISA</a> •
     <a href="#caracterização-do-mirisa">Caracterização do MIRISA (1991–2020)</a> •
     <a href="#organização_do_projeto">Organização do projeto</a> •
@@ -17,7 +17,7 @@
     <a href="INDEX_MIRISA/README.md">Documentação</a>
   </p>
 
-  <p>
+ <p align="center">
     <a href="https://doi.org/10.1002/met.1780">
       <img
         src="https://img.shields.io/badge/DOI-10.1002%2Fmet.1780-164B70?style=for-the-badge"
@@ -35,6 +35,7 @@
       alt="Escala intrassazonal"
     >
   </p>
+</p>
 
 </div>
 <p align="center">
