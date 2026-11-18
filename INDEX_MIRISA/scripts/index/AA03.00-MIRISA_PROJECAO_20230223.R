@@ -18,15 +18,15 @@ library(fields)
 
 print(" Iniciando Etapa 0")
 
-load("outputs/models/MCA_SA_20230226.RData")
+load("outputs/models/MCA_SA_1991-2020_20261111.RData")
 
 
-var_total <- diag(mca.dataset$C1_F1)  # variância total da chuva (covariância de F1)
-var_modes <- diag(cov(mca.dataset$A)) # variância explicada pelos modos (lado da chuva)
+var_total <- diag(mca.dataset$C1_F2)  # variância total da chuva (covariância de F1)
+var_modes <- diag(cov(mca.dataset$B)) # variância explicada pelos modos (lado da chuva)
 
 frac_explicada <- var_modes / sum(var_total)
 print(frac_explicada[1:5]*100)
-
+s
 ##########################
 
 nc <- nc_open("data/olr/padronizados/v01r02/historico/olr.apad.mca.daily.v01r02.20180101.20260307.nc")
