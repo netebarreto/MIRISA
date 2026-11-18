@@ -1,9 +1,9 @@
 {
   "referencia": "Barreto et al. (2019), doi:10.1002/met.1780",
   "entradas": {
-    "prec": "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\prec.mirisa.mca.cpc.19910101.20201231.nc",
-    "vento": "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\uwnd.mirisa.mca.ncep-r1.19910101.20201231.nc",
-    "olr": "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\olr.mirisa.mca.v01r02.19910101.20201231.nc"
+    "prec": "D:\\NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\mca_pattern\\1981-2010\\prec.mirisa.mca.cpc.19810101.20101231_20261111.nc",
+    "vento": "D:\\NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\mca_pattern\\1981-2010\\uwnd.mirisa.mca.ncep-r1.19810101.20101231_20261111.nc",
+    "olr": "D:\\NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\netcdf\\mca_pattern\\1981-2010\\olr.mirisa.mca.v01r02.19810101.20101231_20261111.nc"
   },
   "modos_base_1": [
     1,
@@ -13,13 +13,8 @@
     1,
     1
   ],
-  "scf_informada": [
-    0.56,
-    0.15
-  ],
-  "scf_arquivo": "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\tables\\mca_mirisa_fracao_covariancia_quadratica_1991-2020.txt",
+  "scf_informada": null,
   "limites_cores": [
-    -0.035,
     -0.03,
     -0.025,
     -0.02,
@@ -31,11 +26,10 @@
     0.015,
     0.02,
     0.025,
-    0.03,
-    0.035
+    0.03
   ],
   "saidas": [
-    "D:\\AB00-NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\figures\\MIRISA_MCA_1991_2020.png"
+    "D:\\NETE_PROJETOS\\MIRISA\\INDEX_MIRISA\\outputs\\figures\\mca_pattern_1981-2010.png"
   ],
   "observacoes": [
     "Registros Time interpretados como modos; confirmar na origem.",

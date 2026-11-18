@@ -10,7 +10,7 @@ rm(list=ls())
 # Executar a partir de INDEX_MIRISA ou definir MIRISA_ROOT.
 source(file.path(Sys.getenv("MIRISA_ROOT", unset = "."), "config", "paths.R"))
 
-setwd("C:/Users/Nete/Documents/NETE_PROJETOS/AB00-PROJETOS_NETE/MIRISA_PROJECT/MIRISA_organizado/INDEX_MIRISA")
+setwd("d:/AB00-NETE_PROJETOS/MIRISA/INDEX_MIRISA")
 
 library(dplyr)
 library(lme4)
@@ -22,7 +22,7 @@ f1 <- function(){shell("cls")}
 source("scripts/functions/R/Function_Data_nc_convert_20260320.R")
 source("scripts/functions/R/Function_monsoon_atividade_20260322.r")
 
-mirisa1<-read.table("outputs/tables/MIRISA_CLIM_19910301_20210228_CREATE_20261007.txt",sep=";",dec=".",header=T)
+mirisa1<-read.table("outputs/tables/mirisa_clim_19910101.20201231_CREATE_20261015.txt",sep=";",dec=".",header=T)
 data1=as.Date(paste(mirisa1[,1],mirisa1[,2],mirisa1[,3],sep="-")) 
 
 #round(quantile(mirisa1$Amplitude,prob=c(0.2,0.4,0.6,0.8,0.95)),1)
@@ -56,7 +56,7 @@ mirisa1$seas[mirisa1$Month %in% c(6,7,8)] = "JJA"
 mirisa1$seas[mirisa1$Month %in% c(9,10,11)] = "SON"
 
 #### 
-nc <- nc_open("outputs/netcdf/monsoon.prec.index.cpc-noaa.19910301.20210228.nc")
+nc <- nc_open("outputs/netcdf/monsoon.prec.index.cpc-noaa.S10day.19910301.20200228.nc")
 mpi = ncvar_get(nc, "precip", start=c(1,1,1),count=c(-1,-1,-1))
 time_nc = data_nc_convert(nc)
     

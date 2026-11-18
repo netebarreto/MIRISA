@@ -203,6 +203,9 @@ cdo -s -f nc -seldate,1991-01-01,2020-12-31 -mermean -sellonlatbox,0,357.5,-15,1
 
 ########### 
 
+
+
+
 cdo -s -f nc -seldate,1981-01-01,2010-12-31 -mermean -sellonlatbox,0,357.5,-15,15 -div  data/olr/filtrados/olr.noaa.v2.filtrado.19800101.20111231.nc  data/olr/desvio_padra/olr.noaa.v2.std-filtrado.19810101.20101231.nc data/olr/padronizados/olr.noaa.v2.anom_padronizada.19810101.20101231.nc
 
 cdo -s -b F32 -seldate,1981-01-01,2020-12-31 -mermean -sellonlatbox,0,357.5,-15,15 -div  data/olr/filtrados/olr.noaa.v2.filtrado.19800101.20211231.nc  data/olr/desvio_padrao/olr.noaa.v2.std-filtrado.19810101.20201231.nc data/olr/padronizados/olr.noaa.v2.anom_padronizada.19810101.20201231.nc
@@ -292,4 +295,14 @@ cdo mergetime clim3/v85*.nc v85.ncep.anom.19800101.20211231.nc
 
 
 
+
+##### BESM 
+
+cdo -s -f nc -mermean -sellonlatbox,0,357.5,-15,15 -div  data/besm/filtrados/u20.besm.filtrados.19930101.20231231.nc  data/besm/desvio_padrao/u20.besm.desvio_padrao.1993.2023.nc data/besm/padronizados/u20.besm.anom_padronizada.19930101.20231231.nc
+
+cdo -s -f nc -mermean -sellonlatbox,0,357.5,-15,15 -div  data/besm/filtrados/u85.besm.filtrados.19930101.20231231.nc  data/besm/desvio_padrao/u85.besm.desvio_padrao.1993.2023.nc data/besm/padronizados/u85.besm.anom_padronizada.19930101.20231231.nc
+
+cdo -s -f nc -mermean -sellonlatbox,0,357.5,-15,15 -div  data/besm/filtrados/olr.besm.filtrados.19930101.20231231.nc  data/besm/desvio_padrao/olr.besm.desvio_padrao.1993.2023.nc data/besm/padronizados/olr.besm.anom_padronizada.19930101.20231231.nc
+
+cdo -s -f nc -remapbil,data/prec/desvio_padrao/cpc/precip.sa.cpc-noaa.std-filtrado.19810101.20101231.nc -div  data/besm/filtrados/prec.besm.filtrados.19930101.20231231.nc  data/besm/desvio_padrao/prec.besm.desvio_padrao.1993.2023.nc data/besm/padronizados/prec.besm.anom_padronizada.19930101.20231231.nc
 
