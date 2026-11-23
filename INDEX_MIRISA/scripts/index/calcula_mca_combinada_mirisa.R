@@ -9,31 +9,51 @@
 rm(list=ls())
 
 # Define a raiz do projeto; os caminhos de entrada e saida abaixo sao relativos a ela.
-setwd("C:/Users/Nete/Documents/NETE_PROJETOS/AB00-PROJETOS_NETE/MIRISA_PROJECT/MIRISA_organizado/INDEX_MIRISA")
+
+# setwd("C:/Users/Nete/Documents/NETE_PROJETOS/AB00-PROJETOS_NETE/MIRISA_PROJECT/MIRISA_organizado/INDEX_MIRISA")
+setwd("D:/NETE_PROJETOS/MIRISA/INDEX_MIRISA_Local")
 # Executar a partir de INDEX_MIRISA ou definir MIRISA_ROOT.
 #source(file.path(Sys.getenv("MIRISA_ROOT", unset = "."), "config", "paths.R"))
 
 # Carrega as funcoes auxiliares; cov4gappy calcula covariancias com dados faltantes.
-source("scripts/functions/R/cov4gappy.r")
+source("scripts/functions/R/cov4gappy.R")
 source("scripts/functions/R/anomaly.R")
- 
-#library("beepr")
+
 # ncdf4 permite ler/gravar NetCDF; fields fornece image.plot para os mapas.
 library(ncdf4)
 library(fields)
 
+f1 <- function() {shell("cls")}
+
+ystart = 1991
+yend = 2020
+
+files_input = list(
+    prp = paste0("data/prec/padronizados/cpc/precip.sa.cpc-noaa.anom_padronizada.",ystart,"0101.",yend,"1231.nc"),
+    olr = paste0("data/olr/padronizados/olr.noaa.v2.anom_padronizada.",ystart,"0101.",yend,"1231.nc"),
+    u85 = paste0("data/uwnd/padronizados/ncep/850hPa/u85.ncep.anom_padronizada.",ystart,"0101.",yend,"1231.nc"),
+    u20 = paste0("data/uwnd/padronizados/ncep/200hPa/u20.ncep.anom_padronizada.",ystart,"0101.",yend,"1231.nc"))
+
+period <- paste0(ystart,"-",yend)
+dtoday <- format(Sys.Date(), "%Y%m%d")
+
+files_output = list(
+    mca_result=paste0("outputs/models/MCA_SA_",ystart,"-",yend,"_",dtoday,".RData"),
+    prec = paste0("outputs/netcdf/mca_pattern/",ystart,"-",yend,"/prec.mirisa.mca.cpc.",ystart,"0101.",yend,"1231_",dtoday,".nc"),
+    olr=paste0("outputs/netcdf/mca_pattern/",ystart,"-",yend,"/olr.mirisa.mca.v01r02.",ystart,"0101.",yend,"1231_",dtoday,".nc"),
+    uwnd=paste0("outputs/netcdf/mca_pattern/",ystart,"-",yend,"/uwnd.mirisa.mca.ncep-r1.",ystart,"0101.",yend,"1231_",dtoday,".nc"),
+    mca_fcq=paste0("outputs/tables/mca_mirisa_fracao_covariancia_quadratica_",ystart,"-",yend,"_",dtoday,".txt"))
 
 # Data fixa desta execucao. Os nomes dos arquivos de saida usam datas escritas diretamente.
-data1 = 20261007#shell("date +%Y%m%d",intern=T)
 
 print(" Iniciando Etapa 0")
 
 # ETAPA 0 - LEITURA E ORGANIZACAO DOS CAMPOS
 # Le os dados diarios previamente padronizados de precipitacao (rain).
 # A MCA abaixo pressupoe campos ja preparados e datas alinhadas entre os arquivos.
-nc <- nc_open("data/prec/padronizados/cpc/prec.AMS.apad.mca.daily.cpc.19910301.20210228.nc")
+nc <- nc_open(files_input$prp)
 
-varname = 'rain'
+varname = 'precip'
 varsize = nc$var[[varname]]$size
 
 # Recupera coordenadas e tamanhos; os arrays seguem a ordem longitude, latitude, tempo.
@@ -50,23 +70,24 @@ for( i in 1:nt.prp) {
 
 ##########################
 # Le a mascara espacial. As posicoes NA identificam pontos excluidos da precipitacao.
-nc1 <- nc_open("data/static/masks/AS.mask.20161231.nc")
 
-temp1 = ncvar_get(nc1,"rain", start=c(1,1,1),count=c(-1,-1,1))
-
-n.undef=attr(na.exclude(c(temp1)),"na.action")
+n.undef=attr(na.exclude(c(input[,,1]*0)),"na.action")
 
 # Reorganiza o array: cada linha representa um dia e cada coluna um ponto da grade.
 # A ordem espacial corresponde a longitude variando antes de latitude.
 tmp1<-matrix(input,nrow=nt.prp,byrow=T) # transforma o array em ts
 
 # Retira as colunas identificadas como ausentes na mascara.
-PRP.dataset<-tmp1[,-n.undef]
+
+{if (length(n.undef) > 0) 
+    PRP.dataset <- tmp1[,-n.undef]
+    else 
+        PRP.dataset <- tmp1}
 
 ##########################
 
 # Le o campo de radiacao de onda longa emergente (OLR) e suas coordenadas.
-nc <- nc_open("data/olr/padronizados/olr.apad.mca.daily.v01r02.19910301.20210228.nc")
+nc <- nc_open(files_input$olr)
 varname = 'olr'
 varsize = nc$var[[varname]]$size
 
@@ -88,7 +109,7 @@ OLR<-matrix(input.o,nrow=nt.olr,byrow=T) # transforma o array em ts
 ##########################
 
 # Le o vento zonal a 200 hPa, depois organiza as series em tempo x pontos.
-nc <- nc_open("data/uwnd/padronizados/ncep/200hpa/u20.apad.mca.daily.ncep.19910301.20210228.nc")
+nc <- nc_open(files_input$u20)
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
 
@@ -108,7 +129,7 @@ U20<-matrix(input.u20,nrow=nt.u20,byrow=T) # transforma o array em ts
 ##########################
 
 # Le o vento zonal a 850 hPa, depois organiza as series em tempo x pontos.
-nc <- nc_open("data/uwnd/padronizados/ncep/850hpa/u85.apad.mca.daily.ncep.19910301.20210228.nc")
+nc <- nc_open(files_input$u85)
 varname = 'uwnd'
 varsize = nc$var[[varname]]$size
 
@@ -175,7 +196,7 @@ print(" Iniciando Etapa 1")
   L <- svd(C)
 
 # Sinal sonoro: beep exige que a funcao do pacote beepr esteja disponivel na sessao.
-beep(3)   
+  
 # expl_var normaliza os valores singulares; sq_cov_frac normaliza seus quadrados.
 # A fracao de covariancia quadratica mede a participacao de cada modo na MCA.
 expl_var=L$d/sum(L$d) #explained variance
@@ -266,20 +287,34 @@ print(" Iniciando Etapa 1b ")
         expl_var=expl_var, sq_cov_frac=sq_cov_frac, 
         A=A, B=B,C1_F1=C1_F1,C1_F2=C1_F2)
 
+########  Correção apenas para o intervalo de 1991 - 2020 
+######## e para a segunda componente 
+ if(period == "1991-2020")
+    {
+        mca.dataset$u[,2] =mca.dataset$u[,2]*-1 
+        mca.dataset$v[,2] =mca.dataset$v[,2]*-1
+        mca.dataset$A[,2] = mca.dataset$A[,2]*-1
+        mca.dataset$B[,2] = mca.dataset$B[,2]*-1
+    }    
 
 print(" Iniciando Etapa 2")
   
 #############################################################################
 # ETAPA 2 - SALVAMENTO E EXPORTACAO DOS QUATRO PRIMEIROS MODOS
 # Salva todos os objetos existentes neste ponto para recuperar a analise posteriormente.
-save(list=ls(),file="outputs/models/MCA_SA_20261007.RData")
+save(list=ls(),file=files_output$mca_result)
 
 #################################################### 
 
 # Reinsere os modos da precipitacao na grade completa; pontos da mascara ficam NA.
 lon.lat.prp<-expand.grid(lon.prp,lat.prp)
 lon.lat.prp[,3:6]<-NA
-lon.lat.prp[-n.undef,3:6]<-mca.dataset$u[,1:4]
+
+if (length(n.undef) > 0)
+    {lon.lat.prp[-n.undef,3:6] <- mca.dataset$u[,1:4]}
+    else 
+        {lon.lat.prp[,3:6] <- mca.dataset$u[,1:4]}
+
 tmp1<-as.matrix(lon.lat.prp[,3:6])
 output.prp<-array(tmp1,c(nx.prp,ny.prp,4)) 
 
@@ -288,11 +323,15 @@ output.prp<-array(tmp1,c(nx.prp,ny.prp,4))
 # Os arquivos seguintes contêm padroes espaciais, e nao series diarias.
 t <- ncdim_def( "Time", "day since 2026-10-07", 1:4, unlim=TRUE)
 PRP<- ncvar_def("prp","[mm/dia]",  list(x.prp,y.prp,t),-999999,prec="float" )
-ncnew <- nc_create  (paste0("outputs/netcdf/prec.mirisa.mca.cpc.19910301.20210228.nc"), list(PRP))
+ncnew <- nc_create  (files_output$prec, list(PRP))
 ncvar_put( ncnew,PRP,c(output.prp))
 nc_close(ncnew)
 
 #===============================================================================
+
+
+
+load("D:/NETE_PROJETOS/MIRISA/MIRISA_GITHUB/INDEX_MIRISA/outputs/models/MCA_SA_1991-2020_20261111.RData")
 
 nx.var<-nx.olr
 ny.var<-ny.olr
@@ -301,10 +340,10 @@ x.var<-x.olr
 y.var<-y.olr
 
 # Extrai o bloco OLR de v; os limites fixos pressupõem 360 pontos de OLR.
-output.olr<-array(mca.dataset$v[1:360,1:4],c(nx.var,ny.var,4))
+output.olr<-array(mca.dataset$v[1:nx.olr,1:4],c(nx.var,ny.var,4))
 OLR<- ncvar_def("olr","[w/m2]", list(x.var,y.var,t),-999999,prec="float" )
 
-ncnew <- nc_create(paste0("outputs/netcdf/olr.mirisa.mca.v01r02.19910301.20210228.nc"), list(OLR))
+ncnew <- nc_create(files_output$olr, list(OLR))
 
 ncvar_put( ncnew,OLR,c(output.olr))
 nc_close(ncnew)
@@ -317,135 +356,28 @@ y.var<-y.u85
 
 # Extrai 144 pontos de U85 e 144 de U20, conforme a ordem de cbind.
 # Ambos usam aqui as dimensoes e coordenadas da grade de U85.
-output.u85<-array(mca.dataset$v[361:504,1:4],c(nx.var,ny.var,4))
-output.u20<-array(mca.dataset$v[505:648,1:4],c(nx.var,ny.var,4))
+output.u85<-array(mca.dataset$v[(nx.olr+1):(nx.olr+nx.u85),1:4],c(nx.var,ny.var,4))
+output.u20<-array(mca.dataset$v[(nx.olr+nx.u85+1):(nx.olr+nx.u85+nx.u85),1:4],c(nx.var,ny.var,4))
 
 U85<- ncvar_def("u85","[m/s]" , list(x.var,y.var,t),-999999,prec="float" )
 U20<- ncvar_def("u20","[m/s]" , list(x.var,y.var,t),-999999,prec="float" )
 
-ncnew <- nc_create(paste0("outputs/netcdf/uwnd.mirisa.mca.ncep-r1.19910301.20210228.nc"), list(U85,U20))
+ncnew <- nc_create(files_output$uwnd, list(U85,U20))
 
 ncvar_put( ncnew,U85,c(output.u85))
 ncvar_put( ncnew,U20,c(output.u20))
 
 nc_close(ncnew)
 
-beep(1)
 #===============================================================================
-
-load("outputs/models/MCA_SA_20261007.RData")
-
-# INDICE MIRISA - COMPONENTES, AMPLITUDE E FASE
-# Converte as duas componentes em angulo e amplitude; setores de 45 graus definem a fase.
-# A ordem dos argumentos (x2, x1) determina a orientacao do angulo em atan2.
-perfil1<-function(x2,x1){
-        angl<-((atan2(x1,x2))*-180/pi)+180
-        ampl<-round(sqrt(x1^2+x2^2),3)
-        phase<-as.integer(angl/45)+1
-        phase[phase==0]=8
-        return(data.frame(Phase=phase,Amplitude=ampl))  
-}
-
-# Transformando em valores padronizados
-# Escala os coeficientes dos dois primeiros modos pela raiz do valor singular associado.
-coef.A1<-mca.dataset$A[,1]/sqrt(mca.dataset$Lambda[1]) 
-coef.A2<-mca.dataset$A[,2]/sqrt(mca.dataset$Lambda[2])
-coef.B1<-mca.dataset$B[,1]/sqrt(mca.dataset$Lambda[1]) 
-coef.B2<-mca.dataset$B[,2]/sqrt(mca.dataset$Lambda[2])
-
-# Calcula as combinacoes definidas na rotina: index1 usa A1 e B1; index2 usa A2 e B2.
-# dessa forma o index maximiza as anomalias associadas a chuva.
-index1=round((coef.A1+coef.B1)*-1/2,4)
-index2=round((coef.A2+coef.B2)*-1/2,4)
-
-indexT= perfil1(index1,index2)
-
-# Converte o tempo NetCDF em datas usando a unidade e a origem do atributo units.
-# O switch reconhece days, hours, minutes e seconds; a origem e interpretada em UTC.
-units<-strsplit(t.prp$units," since ")[[1]][1]
-origin<-as.POSIXct(substr(strsplit(t.prp$units," since ")[[1]][2],1,10), tz = 'UTC')
-multiplicator<-switch(units, days = 60 * 60 * 24, hours = 60 * 60, minutes = 60, seconds = 1)
-time.out <- origin + t.prp$vals * multiplicator
-time.out<-as.character(as.Date(time.out))
-
-# Correção POG 1 
-time.out[32:10957] <- time.out[33:10958]
-time.out[10958] <- as.character(as.Date(time.out[10958])+1)
-
-# Monta a tabela diaria: ano, mes, dia, duas componentes, fase e amplitude.
-miri.sa<-data.frame(Year=substr(time.out,1,4),
-    Month=substr(time.out,6,7),
-    day=substr(time.out,9,10),MIRISA1c1=index1, MIRISA1c2=index2,indexT)
-
-
-# Exporta o indice diario em texto separado por ponto e virgula, sem nomes de linhas.
-write.table(miri.sa,file=paste0("outputs/tables/mirisa_clim_19910301_20210228_CREATE_20261007.txt"),sep=";",dec=".",col.names=T,row.names=FALSE)
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 # Exporta a fracao de covariancia quadratica dos quatro primeiros modos, arredondada.
  MCA.EV=data.frame(SCF=round(mca.dataset$sq_cov_frac[1:4],2))
  rownames(MCA.EV)=paste0("MCA",c(1:4))
 
-write.table(MCA.EV,file=paste0("outputs/tables/mca_mirisa_fracao_covariancia_quadratica_20261007.txt"),sep=";",dec=".",col.names=T,row.names=FALSE)
+write.table(MCA.EV,file=files_output$mca_fcq,sep=";",dec=".",col.names=T,row.names=FALSE)
 
 print(" Terminou ")
 
 
-####################################
-
-# ANALISES EXPLORATORIAS - COMPOSTOS SAZONAIS E CORRELACOES
-# Cria uma copia da tabela e classifica a amplitude em faixas (codigos de 0 a 6).
-miri=miri.sa
-
-miri[,8] <- findInterval(miri[,7],c(0.8,1.0,1.2,1.5,2.0,2.5))
-
-# Seleciona dezembro, janeiro e fevereiro (DJF); nn guarda os indices na serie completa.
-mirie<-subset(miri,(Month==12 | Month=="02"| Month=="01"))
-nn = as.numeric(rownames(mirie))
-
-# data.djf=as.Date(paste(mirie[,1],mirie[,2],mirie[,3],sep="-")) 
-
-# Localiza cada fase dentro do subconjunto DJF; esses indices sao relativos a mirie.
-f8<-which(mirie[,6]==8 )
-f1<-which(mirie[,6]==1 )
-f2<-which(mirie[,6]==2 )
-f3<-which(mirie[,6]==3 )
-f4<-which(mirie[,6]==4 )
-f5<-which(mirie[,6]==5 )
-f6<-which(mirie[,6]==6 )
-f7<-which(mirie[,6]==7 )
-
-# Define a ordem dos compostos: fase 8, depois fases 1 a 7.
-nt.f<-list(f1,f2,f3,f4,f5,f6,f7,f8)
-
-  prp.miri<-array(numeric(),c(nx.prp,ny.prp,8))
-
-# Converte os indices de cada fase para a serie completa com nn e calcula
-# a media temporal da precipitacao em cada ponto, multiplicando pela mascara.
-  for (l in 1:8) {
-  prp.miri[,,l]<-apply(input[,,nn[nt.f[[l]]]],2,rowMeans)*temp1
-  }
-
- image.plot(prp.miri[,,1])
-
-
-# Calcula a correlacao ponto a ponto com a primeira componente usando os indices f5.
-# Atencao: f5 foi obtido em mirie, mas aqui indexa input e miri diretamente,
-# sem a conversao nn[f5] empregada nos compostos acima.
-mapa_cor <- apply(
-  input[,,f5],
-  MARGIN = c(1, 2),
-  FUN = function(x) cor(x, miri[f5,4], use = "pairwise.complete.obs")
-)
-image.plot(mapa_cor*temp1)
-
-# Calcula a correlacao entre toda a serie de precipitacao e a segunda componente.
-# pairwise.complete.obs usa apenas pares validos; a mascara e aplicada ao mapa.
-mapa_cor2 <- apply(
-  input,
-  MARGIN = c(1, 2),
-  FUN = function(x) cor(x, miri[,5], use = "pairwise.complete.obs")
-)
-image.plot(mapa_cor2*temp1)
-
+# ####################################
