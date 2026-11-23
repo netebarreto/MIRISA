@@ -25,22 +25,22 @@ python -m venv .venv
 # Linux/macOS:
 source .venv/bin/activate
 # Windows PowerShell: .venv\Scripts\Activate.ps1
-python -m pip install -r FILTRAGEM_PASSA_BANDA/requirements.txt
-python FILTRAGEM_PASSA_BANDA/scripts/comparar_filtros.py
+python -m pip install -r Material_Didatico/FILTRAGEM_PASSA_BANDA/requirements.txt
+python Material_Didatico/FILTRAGEM_PASSA_BANDA/scripts/comparar_filtros.py
 ```
 
-Abre os arquivos SVG em `FILTRAGEM_PASSA_BANDA/resultados/local/` no navegador. As saídas incluem séries, resposta em frequência, espectros, bordas/fase, métricas CSV e parâmetros/versões JSON. O programa não baixa dados e pode ser executado de qualquer diretório: os caminhos padrão são relativos ao próprio script.
+Abre os arquivos SVG em `Material_Didatico/FILTRAGEM_PASSA_BANDA/resultados/local/` no navegador. As saídas incluem séries, resposta em frequência, espectros, bordas/fase, métricas CSV e parâmetros/versões JSON. O programa não baixa dados e pode ser executado de qualquer diretório: os caminhos padrão são relativos ao próprio script.
 
 Edita [parametros.json](exemplos/parametros.json) para trocar a banda, a amostragem, a janela FIR ou as especificações IIR. Para guardar outro experimento:
 
 ```bash
-python FILTRAGEM_PASSA_BANDA/scripts/comparar_filtros.py --config FILTRAGEM_PASSA_BANDA/exemplos/parametros.json --saida FILTRAGEM_PASSA_BANDA/resultados/local/experimento_02
+python Material_Didatico/FILTRAGEM_PASSA_BANDA/scripts/comparar_filtros.py --config Material_Didatico/FILTRAGEM_PASSA_BANDA/exemplos/parametros.json --saida Material_Didatico/FILTRAGEM_PASSA_BANDA/resultados/local/experimento_02
 ```
 
 Para executar as verificações numéricas:
 
 ```bash
-python FILTRAGEM_PASSA_BANDA/scripts/verificar_filtros.py
+python Material_Didatico/FILTRAGEM_PASSA_BANDA/scripts/verificar_filtros.py
 ```
 
 ## Comparações já geradas
@@ -67,4 +67,4 @@ Os exemplos novos foram implementados em Python para permitir uma execução ún
 
 ## Licença e autoria
 
-Aplica-se a [GPLv3 do repositório](../LICENSE). A reorganização e os novos exemplos foram realizados em 16/10/2026. Mantêm-se os avisos de autoria e agradecimentos do projeto. Este laboratório não altera as rotinas de produção em `INDEX_MIRISA`.
+Aplica-se a [GPLv3 do repositório](../../LICENSE). A reorganização e os novos exemplos foram realizados em 16/10/2026. Mantêm-se os avisos de autoria e agradecimentos do projeto. Este laboratório não altera as rotinas de produção em `INDEX_MIRISA`.
