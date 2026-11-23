@@ -36,12 +36,12 @@ import cartopy.feature as cfeature
 from cartopy.mpl.ticker import LatitudeFormatter, LongitudeFormatter
 
 
-# python scripts\plots\mca_pattern_plot_20261116.py --dados outputs\netcdf\mca_pattern\1981-2010 --saida outputs\figures\
+# python scripts\plots\mca_pattern_plot_20261116.py --dados outputs\netcdf\mca_pattern\1991-2020 --saida outputs\figures\
 
 ARQUIVOS = {
-    'prec': 'prec.mirisa.mca.cpc.19810101.20101231_20261111.nc',
-    'vento': 'uwnd.mirisa.mca.ncep-r1.19810101.20101231_20261111.nc',
-    'olr': 'olr.mirisa.mca.v01r02.19810101.20101231_20261111.nc',
+    'prec': 'prec.mirisa.mca.cpc.19910101.20201231_20261111.nc',
+    'vento': 'uwnd.mirisa.mca.ncep-r1.19910101.20201231_20261111.nc',
+    'olr': 'olr.mirisa.mca.v01r02.19910101.20201231_20261111.nc',
 }
 period = "1981-2010"
 

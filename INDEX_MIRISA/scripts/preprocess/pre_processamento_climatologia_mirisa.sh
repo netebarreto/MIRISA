@@ -4,12 +4,38 @@ _mirisa_script_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 source "${_mirisa_script_root}/config/paths.sh" || exit 1
 
 
+# OLR 
+# CLIMA  # dados alguns dias faltantes, foi utilizados o timfillmiss 
+
+cdo -f nc -timfillmiss,method=linear data/olr/brutos/olr.day.mean.v2.20261117.nc data/olr/brutos/olr.day.mean.v2.fillmiss.20261118.nc
+
+cdo -f nc -ydaymean -seldate,"1981-01-01","2010-12-31" data/olr/brutos/olr.day.mean.v1.nc  data/olr/brutos/olr.noaa.v1.clima.19810101.20101231.nc 
+
+cdo -f nc -ydaymean -seldate,"1991-01-01","2020-12-31" data/olr/brutos/olr.day.mean.v1.nc  data/olr/brutos/olr.noaa.v1.clima.19910101.20201231.nc 
+
+cdo -f nc -ydaymean -seldate,"1981-01-01","2020-12-31" data/olr/brutos/olr.day.mean.v1.nc  data/olr/brutos/olr.noaa.v1.clima.19810101.20201231.nc 
+
+
+# Anomalias 
+
+ cdo -s -f nc -ydaysub -seldate,"1980-01-01","2021-12-31" data/olr/brutos/olr.day.mean.v1.nc  data/olr/brutos/olr.noaa.v1.clima.19810101.20201231.nc  data/olr/brutos/olr.noaa.v1.anomalia.19800101.20211231.nc
+
+ cdo -s -f nc -ydaysub -seldate,"1980-01-01","2011-12-31" data/olr/brutos/olr.day.mean.v1.nc  data/olr/brutos/olr.noaa.v1.clima.19810101.20101231.nc  data/olr/brutos/olr.noaa.v1.anomalia.19800101.20111231.nc
+
+ cdo -s -f nc -ydaysub -seldate,"1990-01-01","2021-12-31" data/olr/brutos/olr.day.mean.v1.nc  data/olr/brutos/olr.noaa.v1.clima.19910101.20201231.nc  data/olr/brutos/olr.noaa.v1.anomalia.19900101.20211231.nc
+
+
 ##### UWND 
 
 # CLIMA 
+cdo -ydaymean -sellevel,200 -mergetime uwnd/uwnd.{1981..2010}.nc  uwnd/u20.ncep.clima.19810101.20101231.nc 
+cdo -ydaymean -sellevel,850 -mergetime uwnd/uwnd.{1981..2010}.nc  uwnd/u85.ncep.clima.19810101.20101231.nc 
 
 cdo -ydaymean -sellevel,200 -mergetime uwnd/uwnd.{1991..2020}.nc  uwnd/u20.ncep.clima.19910101.20201231.nc 
 cdo -ydaymean -sellevel,850 -mergetime uwnd/uwnd.{1991..2020}.nc  uwnd/u85.ncep.clima.19910101.20201231.nc 
+
+cdo -ydaymean -sellevel,200 -mergetime uwnd/uwnd.{1981..2020}.nc  uwnd/u20.ncep.clima.19810101.20201231.nc 
+cdo -ydaymean -sellevel,850 -mergetime uwnd/uwnd.{1981..2020}.nc  uwnd/u85.ncep.clima.19810101.20201231.nc 
 
 
 
